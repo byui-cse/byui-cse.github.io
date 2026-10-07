@@ -52,8 +52,9 @@
 
 		<nav class="site-nav" aria-label="Primary">
 			<button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
-				<svg viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M3 6h18M3 12h18M3 18h18"/></svg>
-				Menu
+				<svg class="site-nav__icon site-nav__icon--menu" viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M3 6h18M3 12h18M3 18h18"/></svg>
+				<svg class="site-nav__icon site-nav__icon--close" viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="m5 5 14 14M19 5 5 19"/></svg>
+				<span class="site-nav__label">Menu</span>
 			</button>
 			<div class="site-nav__panel" id="primary-nav">
 				<ul class="site-nav__list">
@@ -70,13 +71,13 @@
 </header>
 
 <dialog class="learn" id="learn-lights" aria-labelledby="learn-lights-title">
+	<button class="learn__close" type="button" data-learn-close aria-label="Close">&times;</button>
 	<div class="learn__inner">
 		<div class="learn__head">
 			<div>
 				<p class="eyebrow">What You Just Learned</p>
 				<h2 id="learn-lights-title">One Number Repainted the Whole Page</h2>
 			</div>
-			<button class="learn__close" type="button" data-learn-close aria-label="Close">&times;</button>
 		</div>
 		<div class="learn__section">
 			<h3>What You Just Did</h3>

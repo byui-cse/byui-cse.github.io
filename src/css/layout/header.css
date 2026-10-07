@@ -13,7 +13,18 @@
 	-webkit-backdrop-filter: saturate(1.4) blur(10px);
 }
 
+/*
+ * Lock page scroll while the mobile menu is open. Only <html>: hidden overflow
+ * on <body> makes it a scroll container, so the sticky header would stick to
+ * <body> (never scrolled) and jump back to the top of the document.
+ */
+html.menu-open {
+	overflow: hidden;
+	scrollbar-gutter: stable;
+}
+
 .site-header__inner {
+	position: relative;
 	display: flex;
 	align-items: center;
 	gap: var(--space-sm);
@@ -75,16 +86,24 @@
 	cursor: pointer;
 
 	svg {
+		flex: none;
 		width: 1.1rem;
 		height: 1.1rem;
+	}
+
+	.site-nav__icon--close {
+		display: none;
 	}
 }
 
 .site-nav__panel {
 	display: none;
 	position: absolute;
-	inset-inline: 0;
+	inset-inline-start: 50%;
+	inset-inline-end: auto;
 	inset-block-start: 100%;
+	width: 100vw;
+	transform: translateX(-50%);
 	padding: var(--space-md) var(--gutter) var(--space-xl);
 	background: var(--color-paper);
 	border-block-end: 1px solid var(--color-line);
@@ -93,6 +112,28 @@
 
 .site-nav__toggle[aria-expanded="true"] + .site-nav__panel {
 	display: block;
+}
+
+.site-nav__toggle[aria-expanded="true"] {
+	.site-nav__icon--menu {
+		display: none;
+	}
+
+	.site-nav__icon--close {
+		display: block;
+	}
+}
+
+.site-nav__panel {
+	max-height: calc(100vh - var(--header-h));
+	max-height: calc(100dvh - var(--header-h));
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	-webkit-overflow-scrolling: touch;
+}
+
+.site-nav__label {
+	display: none;
 }
 
 .site-nav__list {
@@ -140,6 +181,11 @@
 		align-items: center;
 		gap: var(--space-lg);
 		position: static;
+		inset: auto;
+		width: auto;
+		max-height: none;
+		transform: none;
+		overflow: visible;
 		padding: 0;
 		background: none;
 		border: 0;
@@ -207,6 +253,7 @@
 }
 
 .lights__bulb {
+	flex: none;
 	width: 1.5rem;
 	height: 1.5rem;
 	overflow: visible;
@@ -231,8 +278,9 @@
 	display: none;
 }
 
-@media (min-width: 30rem) {
-	.lights__label {
+@media (min-width: 40rem) {
+	.lights__label,
+	.site-nav__label {
 		display: inline;
 	}
 }

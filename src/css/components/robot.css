@@ -537,26 +537,16 @@
 	}
 }
 
-/* ---------- Win modal (centered on every screen size) ---------- */
+/* ---------- Win modal (full screen like the Learn dialog, content centered) ---------- */
 
 .robot-win {
-	width: min(30rem, calc(100% - 2rem));
-	margin: auto;
-	border-radius: var(--radius-lg);
 	text-align: center;
 }
 
 .robot-win__inner {
-	position: relative;
-	display: grid;
 	justify-items: center;
 	gap: var(--space-sm);
-}
-
-.robot-win__close {
-	position: absolute;
-	inset-block-start: var(--space-md);
-	inset-inline-end: var(--space-md);
+	width: min(30rem, 100% - (var(--gutter) * 2));
 }
 
 .robot-win__stars {

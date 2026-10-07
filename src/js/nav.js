@@ -75,7 +75,9 @@ const initNav = () => {
     const toggle = nav.querySelector(".site-nav__toggle");
 
     if (toggle) {
-        const popup = registerPopup(nav, toggle);
+        const popup = registerPopup(nav, toggle, (open) => {
+            document.documentElement.classList.toggle("menu-open", open);
+        });
         const wide = window.matchMedia("(min-width: 64rem)");
 
         /* Leaving the mobile layout should not leave a hidden menu "open". */

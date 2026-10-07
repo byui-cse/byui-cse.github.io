@@ -576,7 +576,11 @@
         const win = el("dialog", { class: "learn robot-win", "aria-labelledby": `robot-win-title-${root.dataset.robot}` });
         const winInner = el("div", { class: "learn__inner robot-win__inner" });
 
-        win.append(winInner);
+        /* Lives outside the inner content so it stays pinned while the dialog scrolls. */
+        win.append(
+            el("button", { type: "button", class: "learn__close", "data-win-close": true, "aria-label": "Close" }, "×"),
+            winInner
+        );
         document.body.append(win);
         win.addEventListener("click", (e) => {
             if (e.target === win || e.target.closest("[data-win-close]")) {
@@ -1054,12 +1058,10 @@
         const showWin = (stars, title, body) => {
             winInner.textContent = "";
 
-            const close = el("button", { type: "button", class: "learn__close robot-win__close", "data-win-close": true, "aria-label": "Close" }, "\u00D7");
             const big = starIcons(stars);
 
             big.classList.add("robot-win__stars");
             winInner.append(
-                close,
                 big,
                 el("h2", { class: "robot-win__title", id: `robot-win-title-${root.dataset.robot}` }, title),
                 el("p", { class: "robot-win__text" }, body)
