@@ -119,5 +119,34 @@ const initFaqs = () => {
     });
 };
 
+/**
+ * Review links (#review-xxxxxx from SITE-REVIEW.md): bring the item into view,
+ * opening its popup first if it lives inside one. CSS outlines the :target.
+ */
+const showReviewTarget = () => {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+
+    if (!id.startsWith("review-")) {
+        return;
+    }
+
+    const target = document.getElementById(id);
+
+    if (!target) {
+        return;
+    }
+
+    const dialog = target.closest("dialog");
+
+    if (dialog && !dialog.open) {
+        dialog.showModal();
+    }
+
+    target.closest("details")?.setAttribute("open", "");
+    target.scrollIntoView({ block: "center" });
+};
+
 initNav();
 initFaqs();
+showReviewTarget();
+window.addEventListener("hashchange", showReviewTarget);

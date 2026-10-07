@@ -5,7 +5,8 @@
     "scripts": {
         "build": "node lib/cli/build.js --production",
         "dev": "node lib/cli/build.js --dev",
-        "verify": "node lib/cli/verify.js"
+        "verify": "node lib/cli/verify.js",
+        "review": "node lib/cli/review.js"
     },
     "engines": {
         "node": ">=20"

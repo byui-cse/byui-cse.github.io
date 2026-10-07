@@ -125,6 +125,13 @@ mark,
 	-webkit-box-decoration-break: clone;
 }
 
+/* Linked from SITE-REVIEW.md: outline the item a reviewer jumped to. */
+[id^="review-"]:target {
+	outline: 4px solid var(--color-focus);
+	outline-offset: 4px;
+	scroll-margin-block: 40vh;
+}
+
 /* Display heading: for the one statement a page is built around. */
 h2.display {
 	font-size: clamp(2.75rem, 1.6rem + 4.5vw, 5.25rem);
