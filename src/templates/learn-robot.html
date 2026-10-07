@@ -1,0 +1,71 @@
+<dialog class="learn" id="learn-robot" aria-labelledby="learn-robot-title">
+	<div class="learn__inner">
+		<div class="learn__head">
+			<div>
+				<p class="eyebrow">Skills behind the Puzzle</p>
+				<h2 id="learn-robot-title">How This Puzzle Works and How to Build It</h2>
+			</div>
+			<button class="learn__close" type="button" data-learn-close aria-label="Close">&times;</button>
+		</div>
+		<div class="learn__section">
+			<h3>What You Do</h3>
+			<p>You write a list of exact instructions, and the robot carries them out one at a time. A Repeat block is a loop: One instruction that runs many times.</p>
+		</div>
+		<div class="learn__section">
+			<h3>The Ideas behind It</h3>
+			<ul>
+				<li><strong>Sequencing:</strong> Computers do exactly what you say, in exactly the order you say it.</li>
+				<li><strong>Loops:</strong> Repeating instructions keeps code short, readable, and easy to change.</li>
+				<li><strong>Debugging:</strong> When the robot crashes, you trace the failure to one step and fix it.</li>
+				<li><strong>Optimization:</strong> The shortest path and the fewest blocks are two different kinds of better. Engineers weigh both.</li>
+			</ul>
+		</div>
+		<div class="learn__section">
+			<h3>How This Puzzle Was Built</h3>
+			<ul>
+				<li><strong>HTML:</strong> The structure of the board, the blocks, and the buttons.</li>
+				<li><strong>CSS:</strong> The look and layout, with colors that stay readable at every Lights level.</li>
+				<li><strong>JavaScript:</strong> The blocks you stack, the robot&rsquo;s animation, and the scoring.</li>
+				<li><strong>Algorithms:</strong> A breadth-first search finds the shortest path on every level, and dynamic programming works out the fewest blocks, so the star targets are always exact.</li>
+			</ul>
+		</div>
+		<div class="learn__section">
+			<h3>Where You Would Learn This</h3>
+			<p><mark data-verify="Faculty: confirm course mapping">WDD 130 Web Fundamentals and WDD 131 Dynamic Web Fundamentals for HTML, CSS, and JavaScript; CSE 110 and CSE 111 for programming; CSE 212 Programming with Data Structures and CSE 381 Algorithms &amp; Complexity for search and optimization</mark>.</p>
+		</div>
+		<div class="learn__section learn__section--human">
+			<p>The robot only follows the plan. You made the plan.</p>
+		</div>
+	</div>
+</dialog>
+
+<dialog class="learn" id="learn-robot-search" aria-labelledby="learn-robot-search-title">
+	<div class="learn__inner">
+		<div class="learn__head">
+			<div>
+				<p class="eyebrow">What You Just Saw</p>
+				<h2 id="learn-robot-search-title">Breadth-First Search</h2>
+			</div>
+			<button class="learn__close" type="button" data-learn-close aria-label="Close">&times;</button>
+		</div>
+		<div class="learn__section">
+			<h3>What the Computer Did</h3>
+			<p>It checked every square one move away, then every square two moves away, then three, spreading out like a ripple until it reached the goal. Because it always checks the closest squares first, the first path it finds is guaranteed to be the shortest.</p>
+		</div>
+		<div class="learn__section">
+			<h3>The Ideas behind It</h3>
+			<ul>
+				<li><strong>Graphs:</strong> The grid is a graph. Squares are nodes, and moves are the edges between them.</li>
+				<li><strong>Search Algorithms:</strong> The same idea powers map directions, network routing, and game AI.</li>
+				<li><strong>Complexity:</strong> Computer scientists measure how much work an algorithm does as the problem grows, so it stays fast at scale.</li>
+			</ul>
+		</div>
+		<div class="learn__section">
+			<h3>Where You Would Learn This</h3>
+			<p><mark data-verify="Faculty: confirm course mapping">CSE 212 Programming with Data Structures and CSE 381 Algorithms &amp; Complexity</mark>.</p>
+		</div>
+		<div class="learn__section learn__section--human">
+			<p>The computer searched fast. A person decided what &ldquo;best&rdquo; means and wrote the search.</p>
+		</div>
+	</div>
+</dialog>

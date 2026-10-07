@@ -1,0 +1,93 @@
+/**
+ * Heroes: full-width brand band, text left, photo right on wide screens.
+ * A faint circuit-trace pattern adds texture without competing with the text.
+ */
+.hero {
+	position: relative;
+	overflow: hidden;
+	padding-block: clamp(3rem, 2rem + 6vw, 7.5rem) clamp(3.5rem, 2rem + 6vw, 8rem);
+	background:
+		radial-gradient(50rem 28rem at 90% 0%, color-mix(in srgb, var(--color-band-accent) 16%, transparent), transparent 70%),
+		linear-gradient(155deg, var(--color-band) 0%, var(--color-band-deep) 100%);
+	color: var(--color-on-band);
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		opacity: 0.12;
+		background-image:
+			linear-gradient(90deg, var(--color-on-band) 1px, transparent 1px),
+			linear-gradient(var(--color-on-band) 1px, transparent 1px);
+		background-size: 4.5rem 4.5rem;
+		mask-image: radial-gradient(ellipse at 80% 20%, black, transparent 65%);
+		-webkit-mask-image: radial-gradient(ellipse at 80% 20%, black, transparent 65%);
+	}
+
+	> .container {
+		position: relative;
+	}
+
+	h1 {
+		margin-block-end: var(--space-lg);
+		max-width: 14ch;
+
+		em {
+			font-style: normal;
+			color: var(--color-band-accent);
+		}
+	}
+
+	.eyebrow {
+		color: var(--color-band-accent);
+	}
+
+	.lede {
+		max-width: 38rem;
+		margin-block-end: var(--space-xl);
+		color: var(--color-on-band);
+	}
+}
+
+.hero--page {
+	padding-block: clamp(2.5rem, 1.75rem + 4vw, 5.5rem);
+
+	h1 {
+		max-width: 18ch;
+		font-size: clamp(2.5rem, 1.6rem + 4vw, 4.75rem);
+	}
+}
+
+.hero__media {
+	position: relative;
+}
+
+/* Small proof points under the hero buttons. */
+.hero__facts {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-xs) var(--space-lg);
+	margin: var(--space-xl) 0 0;
+	padding: 0;
+	list-style: none;
+	color: var(--color-on-band-muted);
+	font-family: var(--font-ui);
+	font-size: var(--text-min);
+	font-weight: var(--weight-semibold);
+
+	li {
+		margin: 0;
+	}
+
+	li::before {
+		content: "";
+		display: inline-block;
+		width: 0.5rem;
+		height: 0.5rem;
+		margin-inline-end: 0.5rem;
+		border-radius: 50%;
+		background: var(--color-band-accent);
+		vertical-align: 0.1em;
+	}
+}

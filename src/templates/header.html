@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{title}}</title>
+	<meta name="description" content="{{description}}">
+	<meta name="theme-color" content="#004c86">
+	<link rel="preload" href="/fonts/source-sans-3-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/fonts/source-serif-4-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="/css/main.css">
+	{{head}}
+	<!-- Runs before first paint so the page opens at the visitor's saved Lights level. -->
+	<script src="/js/lights-core.js"></script>
+	<script src="/js/nav.js" defer></script>
+	<script src="/js/lights-ui.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+	<div class="site-header__inner container">
+		<a class="brand" href="/index.html">
+			<span class="brand__name">BYU-Idaho</span>
+			<span class="brand__dept">Computer Science &amp; Software Engineering</span>
+		</a>
+
+		<div class="lights" data-lights-control>
+			<button class="lights__toggle" type="button" aria-expanded="false" aria-controls="lights-panel" data-lights-toggle>
+				<svg class="lights__bulb" viewBox="0 0 24 24" aria-hidden="true">
+					<g class="lights__rays" stroke-width="1.6" stroke-linecap="round">
+						<path d="M12 0.8v1.6M3.2 4.2l1.2 1.2M20.8 4.2l-1.2 1.2M0.8 12h1.6M21.6 12h1.6"/>
+					</g>
+					<path class="lights__glow" d="M12 4.5a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V18h5.2v-.7c0-.8.4-1.5 1-2A6 6 0 0 0 12 4.5z"/>
+					<path class="lights__glass" stroke-width="1.6" d="M12 4.5a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V18h5.2v-.7c0-.8.4-1.5 1-2A6 6 0 0 0 12 4.5zM9.6 20.5h4.8M10.4 22.8h3.2"/>
+				</svg>
+				<span class="lights__label">Lights</span>
+			</button>
+			<div class="lights__panel" id="lights-panel" data-lights-panel hidden>
+				<div class="lights__head">
+					<label for="lights-range">Page Brightness</label>
+					<output class="lights__value" for="lights-range" data-lights-value>100%</output>
+				</div>
+				<div class="lights__row">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 15.3A8.5 8.5 0 0 1 8.7 4a8.5 8.5 0 1 0 11.3 11.3z"/></svg>
+					<input class="lights__range" id="lights-range" type="range" min="1" max="100" step="1" value="100" data-lights-range>
+					<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 1.5v2.5M12 20v2.5M1.5 12H4M20 12h2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+				</div>
+				<button class="lights__learn" type="button" data-learn-open="learn-lights">How Does This Work?</button>
+			</div>
+		</div>
+
+		<nav class="site-nav" aria-label="Primary">
+			<button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+				<svg viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M3 6h18M3 12h18M3 18h18"/></svg>
+				Menu
+			</button>
+			<div class="site-nav__panel" id="primary-nav">
+				<ul class="site-nav__list">
+					<li><a class="site-nav__link" href="/computer-science.html" data-nav="computer-science">Computer Science</a></li>
+					<li><a class="site-nav__link" href="/software-engineering.html" data-nav="software-engineering">Software Engineering</a></li>
+					<li><a class="site-nav__link" href="/projects.html" data-nav="projects">Student Work</a></li>
+					<li><a class="site-nav__link" href="/life.html" data-nav="life">Life Here</a></li>
+					<li><a class="site-nav__link" href="/families.html" data-nav="families">Families</a></li>
+				</ul>
+				<a class="button button--small" href="https://www.byui.edu/admissions/" target="_blank" rel="noopener noreferrer">Apply</a>
+			</div>
+		</nav>
+	</div>
+</header>
+
+<dialog class="learn" id="learn-lights" aria-labelledby="learn-lights-title">
+	<div class="learn__inner">
+		<div class="learn__head">
+			<div>
+				<p class="eyebrow">What You Just Learned</p>
+				<h2 id="learn-lights-title">One Number Repainted the Whole Page</h2>
+			</div>
+			<button class="learn__close" type="button" data-learn-close aria-label="Close">&times;</button>
+		</div>
+		<div class="learn__section">
+			<h3>What You Just Did</h3>
+			<p>When you moved the slider, a small program took your number, calculated a new set of colors, and swapped them into the page while you watched.</p>
+		</div>
+		<div class="learn__section">
+			<h3>The Idea behind It</h3>
+			<ul>
+				<li><strong>Variables and Events:</strong> The page listens for you to move the slider and stores your choice in a variable.</li>
+				<li><strong>Color Math:</strong> Every color is calculated so text stays readable at every level, from 1% to 100%.</li>
+				<li><strong>Saving a Preference:</strong> Your browser remembers your setting for the next visit.</li>
+				<li><strong>Accessibility:</strong> The program checks contrast so people with low vision can still read the page.</li>
+			</ul>
+		</div>
+		<div class="learn__section">
+			<h3>Where You Would Learn This</h3>
+			<p><mark data-verify="Faculty: confirm course mapping">CSE 110 Introduction to Programming, WDD 130 Web Fundamentals, and WDD 131 Dynamic Web Fundamentals</mark>, all in your first two semesters.</p>
+		</div>
+		<div class="learn__section learn__section--human">
+			<p>A computer can change a color. A person decides whether everyone can still read it.</p>
+		</div>
+	</div>
+</dialog>

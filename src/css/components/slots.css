@@ -1,0 +1,114 @@
+/**
+ * Reserved spaces for content that comes later:
+ *  - .slot--photo     a photo or video that still needs to be supplied
+ *  - .slot--activity  an interactive activity that will be built later
+ * Both are styled to look intentional, and both carry a highlighted note.
+ */
+.slot {
+	position: relative;
+	display: grid;
+	place-items: center;
+	aspect-ratio: var(--slot-ratio, 4 / 3);
+	overflow: hidden;
+	border-radius: var(--radius-lg);
+	border: 1px solid var(--color-line);
+	background:
+		radial-gradient(circle at 25% 20%, color-mix(in srgb, var(--color-band-accent) 22%, transparent), transparent 55%),
+		linear-gradient(145deg, color-mix(in srgb, var(--color-brand) 22%, var(--color-tint)), var(--color-tint));
+	text-align: center;
+}
+
+.slot--wide {
+	--slot-ratio: 16 / 9;
+}
+
+.slot--tall {
+	--slot-ratio: 4 / 3;
+}
+
+@media (min-width: 56rem) {
+	.slot--tall {
+		--slot-ratio: 4 / 5;
+	}
+}
+
+.slot__note {
+	max-width: 22rem;
+	margin: var(--space-md);
+	padding: var(--space-sm) var(--space-md);
+	border-radius: var(--radius-sm);
+	background: var(--color-verify-bg);
+	color: var(--color-verify-ink);
+	font-family: var(--font-ui);
+	font-size: var(--text-min);
+	font-weight: var(--weight-semibold);
+	line-height: 1.4;
+}
+
+.slot__note strong {
+	display: block;
+}
+
+.hero .slot {
+	border-color: color-mix(in srgb, var(--color-on-band) 25%, transparent);
+	background:
+		radial-gradient(circle at 70% 25%, color-mix(in srgb, var(--color-band-accent) 30%, transparent), transparent 55%),
+		linear-gradient(145deg, color-mix(in srgb, var(--color-on-band) 18%, transparent), color-mix(in srgb, var(--color-on-band) 6%, transparent));
+	box-shadow: 0 2rem 4rem rgb(0 0 0 / 0.25);
+}
+
+/* ---------- Activity slot ---------- */
+
+.activity {
+	display: grid;
+	gap: var(--gap);
+	padding: clamp(1.25rem, 1rem + 1.5vw, 2.5rem);
+	border-radius: var(--radius-lg);
+	border: 2px dashed var(--color-border);
+	background: var(--color-surface);
+}
+
+@media (min-width: 56rem) {
+	.activity {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+		align-items: center;
+	}
+}
+
+.activity__intro {
+	h3 {
+		margin-block: var(--space-xs) var(--space-sm);
+	}
+
+	p {
+		margin-block-end: var(--space-sm);
+	}
+}
+
+.activity__badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.2rem 0.75rem;
+	border-radius: var(--radius-pill);
+	background: var(--color-verify-bg);
+	color: var(--color-verify-ink);
+	font-family: var(--font-ui);
+	font-size: var(--text-min);
+	font-weight: var(--weight-bold);
+}
+
+/* A quiet grid that hints at the robot board or breadboard. */
+.activity__stage {
+	--slot-ratio: 16 / 10;
+	background:
+		linear-gradient(90deg, var(--color-line) 1px, transparent 1px) 0 0 / 12.5% 20%,
+		linear-gradient(var(--color-line) 1px, transparent 1px) 0 0 / 12.5% 20%,
+		var(--color-tint);
+}
+
+.activity__stage--dots {
+	background:
+		radial-gradient(circle, var(--color-border) 1.5px, transparent 2px) 0 0 / 1.5rem 1.5rem,
+		var(--color-tint);
+}

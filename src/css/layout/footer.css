@@ -1,0 +1,116 @@
+/**
+ * Site footer: deep brand band, link columns, mission line.
+ */
+.site-footer {
+	padding-block: var(--space-3xl) var(--space-xl);
+	background: var(--color-band-deep);
+	color: var(--color-on-band);
+	font-family: var(--font-ui);
+
+	a {
+		color: var(--color-on-band);
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.site-footer__top {
+	display: grid;
+	gap: var(--space-2xl);
+}
+
+@media (min-width: 64rem) {
+	.site-footer__top {
+		grid-template-columns: 1.3fr 2fr;
+	}
+}
+
+.site-footer__brand p {
+	max-width: 30rem;
+	color: var(--color-on-band-muted);
+	font-family: var(--font-body);
+}
+
+.site-footer__brand .site-footer__name {
+	margin-block-end: var(--space-sm);
+	color: var(--color-on-band);
+	font-family: var(--font-ui);
+	font-size: 1.5rem;
+	font-weight: var(--weight-black);
+}
+
+.site-footer__cols {
+	display: grid;
+	gap: var(--space-xl);
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+
+	h2 {
+		margin-block-end: var(--space-sm);
+		color: var(--color-band-accent);
+		font-size: var(--text-min);
+		font-weight: var(--weight-bold);
+		letter-spacing: var(--tracking-eyebrow);
+		text-transform: uppercase;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	li + li {
+		margin-block-start: var(--space-xs);
+	}
+}
+
+/* Footer links with white brand icons. Icons sit on the text baseline so line alignment is unchanged. */
+.footer-icon-link {
+	white-space: nowrap;
+}
+
+.icon-github {
+	display: inline-block;
+	width: 1.05em;
+	height: 1.05em;
+	margin-inline-end: 0.4em;
+	vertical-align: -0.15em;
+	color: #ffffff;
+}
+
+/* Pure CSS YouTube icon: white rounded rectangle, play triangle cut in the footer color. */
+.icon-youtube {
+	position: relative;
+	display: inline-block;
+	width: 1.45em;
+	height: 1em;
+	margin-inline-end: 0.4em;
+	border-radius: 0.28em;
+	background: #ffffff;
+	vertical-align: -0.15em;
+
+	&::after {
+		content: "";
+		position: absolute;
+		inset-block-start: 50%;
+		inset-inline-start: 52%;
+		border-block: 0.24em solid transparent;
+		border-inline-start: 0.38em solid var(--color-band-deep);
+		transform: translate(-50%, -50%);
+	}
+}
+
+.site-footer__bottom {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-md) var(--space-xl);
+	justify-content: space-between;
+	margin-block-start: var(--space-2xl);
+	padding-block-start: var(--space-lg);
+	border-block-start: 1px solid color-mix(in srgb, var(--color-on-band) 20%, transparent);
+	color: var(--color-on-band-muted);
+	font-size: var(--text-min);
+}

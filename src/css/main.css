@@ -1,0 +1,27 @@
+/**
+ * BYU-Idaho Computer Science & Software Engineering site.
+ * Layers: tokens → base → layout → components → utilities.
+ */
+@layer tokens, base, layout, components, utilities;
+
+@import "./tokens/colors.css" layer(tokens);
+@import "./tokens/typography.css" layer(tokens);
+@import "./tokens/spacing.css" layer(tokens);
+
+@import "./base/fonts.css" layer(base);
+@import "./base/reset.css" layer(base);
+@import "./base/typography.css" layer(base);
+
+@import "./layout/layout.css" layer(layout);
+@import "./layout/header.css" layer(layout);
+@import "./layout/footer.css" layer(layout);
+
+@import "./components/button.css" layer(components);
+@import "./components/hero.css" layer(components);
+@import "./components/cards.css" layer(components);
+@import "./components/content.css" layer(components);
+@import "./components/slots.css" layer(components);
+@import "./components/learn.css" layer(components);
+@import "./components/robot.css" layer(components);
+
+@import "./utilities/helpers.css" layer(utilities);

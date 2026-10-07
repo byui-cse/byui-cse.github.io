@@ -1,0 +1,92 @@
+/**
+ * Learn dialog: "What you just did / The idea / Where you'd learn it / The human part".
+ * Shared by every interactive moment. Bottom sheet on phones, centered card on larger screens.
+ */
+.learn {
+	width: min(40rem, 100%);
+	max-height: min(85dvh, 44rem);
+	margin: auto auto 0;
+	padding: 0;
+	border: 0;
+	border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+	background: var(--color-surface);
+	color: var(--color-ink);
+	box-shadow: var(--shadow-lg);
+
+	&::backdrop {
+		background: rgb(5 15 30 / 0.55);
+		backdrop-filter: blur(3px);
+	}
+
+	&[open] {
+		animation: learn-in var(--base) var(--ease);
+	}
+}
+
+@media (min-width: 40rem) {
+	.learn {
+		margin: auto;
+		border-radius: var(--radius-lg);
+	}
+}
+
+@keyframes learn-in {
+	from {
+		opacity: 0;
+		transform: translateY(1.5rem);
+	}
+}
+
+.learn__inner {
+	padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+}
+
+.learn__head {
+	display: flex;
+	align-items: start;
+	justify-content: space-between;
+	gap: var(--space-md);
+	margin-block-end: var(--space-lg);
+
+	h2 {
+		margin: 0;
+		font-size: var(--text-h3);
+	}
+}
+
+.learn__close {
+	flex: none;
+	display: grid;
+	place-items: center;
+	width: var(--touch-min);
+	height: var(--touch-min);
+	border: 1px solid var(--color-border);
+	border-radius: 50%;
+	background: none;
+	font-size: 1.5rem;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.learn__section + .learn__section {
+	margin-block-start: var(--space-lg);
+	padding-block-start: var(--space-lg);
+	border-block-start: 1px solid var(--color-line);
+}
+
+.learn__section h3 {
+	margin-block-end: var(--space-xs);
+	color: var(--color-link);
+	font-family: var(--font-ui);
+	font-size: var(--text-min);
+	font-weight: var(--weight-bold);
+	letter-spacing: var(--tracking-eyebrow);
+	text-transform: uppercase;
+}
+
+.learn__section--human {
+	font-family: var(--font-quote);
+	font-size: var(--text-lede);
+	font-style: italic;
+	line-height: 1.4;
+}

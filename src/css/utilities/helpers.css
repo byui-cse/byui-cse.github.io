@@ -1,0 +1,30 @@
+/**
+ * Small utilities.
+ */
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.text-muted {
+	color: var(--color-muted);
+}
+
+.text-center {
+	text-align: center;
+}
+
+.mt-lg {
+	margin-block-start: var(--space-xl);
+}
+
+.mt-2xl {
+	margin-block-start: var(--space-2xl);
+}
