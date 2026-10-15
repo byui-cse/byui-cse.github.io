@@ -1,0 +1,114 @@
+/**
+ * Buttons. Primary is brand blue; secondary is outlined; on brand bands,
+ * primary turns white so it stands out against the blue.
+ */
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	min-height: 3.25rem;
+	padding: 0.7rem 1.5rem;
+	border: 2px solid var(--color-brand);
+	border-radius: var(--radius-pill);
+	background: var(--color-brand);
+	color: var(--color-on-brand);
+	font-family: var(--font-ui);
+	font-size: 1.125rem;
+	font-weight: var(--weight-bold);
+	line-height: 1.2;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	transition:
+		background-color var(--fast) var(--ease),
+		border-color var(--fast) var(--ease),
+		color var(--fast) var(--ease),
+		transform var(--fast) var(--ease);
+
+	&:hover {
+		background: var(--color-brand-hover);
+		border-color: var(--color-brand-hover);
+		color: var(--color-on-brand);
+		transform: translateY(-1px);
+	}
+
+	.arrow {
+		transition: transform var(--fast) var(--ease);
+	}
+
+	&:hover .arrow {
+		transform: translateX(3px);
+	}
+}
+
+.button--secondary {
+	background: transparent;
+	border-color: var(--color-link);
+	color: var(--color-link);
+
+	&:hover {
+		background: var(--color-link);
+		border-color: var(--color-link);
+		color: var(--color-paper);
+	}
+}
+
+.button--small {
+	min-height: var(--touch-min);
+	padding: 0.45rem 1.1rem;
+	font-size: var(--text-min);
+}
+
+.section--brand,
+.hero {
+	.button {
+		background: var(--color-on-band);
+		border-color: var(--color-on-band);
+		color: var(--color-band-deep);
+
+		&:hover {
+			background: transparent;
+			color: var(--color-on-band);
+		}
+	}
+
+	.button--secondary {
+		background: transparent;
+		border-color: color-mix(in srgb, var(--color-on-band) 70%, transparent);
+		color: var(--color-on-band);
+
+		&:hover {
+			background: var(--color-on-band);
+			border-color: var(--color-on-band);
+			color: var(--color-band-deep);
+		}
+	}
+}
+
+.button-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-sm) var(--space-md);
+}
+
+/* Full-width buttons on small phones so they are easy to tap. */
+@media (max-width: 30rem) {
+	.button-row .button {
+		flex: 1 1 100%;
+	}
+}
+
+.text-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4em;
+	font-family: var(--font-ui);
+	font-size: var(--text-sm);
+	font-weight: var(--weight-bold);
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}

@@ -1,0 +1,187 @@
+/**
+ * Page layout. Sections are full-bleed bands; content sits in a wide container.
+ * Mobile-first: everything stacks, then splits and grids open up as width allows.
+ */
+.container {
+	width: var(--container);
+	margin-inline: auto;
+}
+
+.container--narrow {
+	width: var(--container-narrow);
+	margin-inline: auto;
+}
+
+.skip-link {
+	position: absolute;
+	inset-block-start: var(--space-xs);
+	inset-inline-start: var(--space-xs);
+	z-index: 200;
+	padding: var(--space-xs) var(--space-md);
+	border-radius: var(--radius-sm);
+	background: var(--color-brand);
+	color: var(--color-on-brand);
+	font-family: var(--font-ui);
+	font-size: var(--text-min);
+	font-weight: var(--weight-bold);
+	text-decoration: none;
+	transform: translateY(-200%);
+}
+
+.skip-link:focus {
+	transform: translateY(0);
+}
+
+/* ---------- Sections (bands) ---------- */
+
+.section {
+	padding-block: var(--section-y);
+}
+
+.section--tight {
+	padding-block: calc(var(--section-y) * 0.6);
+}
+
+.section--tint {
+	background: var(--color-tint);
+}
+
+.section--surface {
+	background: var(--color-surface);
+	border-block: 1px solid var(--color-line);
+}
+
+/* Full-width brand blue band with white text. */
+.section--brand {
+	background:
+		radial-gradient(60rem 30rem at 85% -10%, color-mix(in srgb, var(--color-on-band) 10%, transparent), transparent 70%),
+		linear-gradient(160deg, var(--color-band), var(--color-band-deep));
+	color: var(--color-on-band);
+
+	.eyebrow {
+		color: var(--color-band-accent);
+	}
+
+	.lede,
+	p {
+		color: var(--color-on-band);
+	}
+
+	.meta {
+		color: var(--color-band-accent);
+	}
+
+	a:not(.button) {
+		color: var(--color-on-band);
+	}
+}
+
+/* ---------- Section heading block ---------- */
+
+.section-head {
+	display: grid;
+	gap: var(--space-md);
+	margin-block-end: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+
+	h2 {
+		margin: 0;
+	}
+
+	.lede {
+		margin: 0;
+		max-width: 60rem;
+	}
+}
+
+/* On wide screens, heading on the left, intro on the right: uses the full width. */
+@media (min-width: 64rem) {
+	.section-head--row {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		align-items: end;
+		column-gap: var(--space-2xl);
+	}
+
+	.section-head--row .eyebrow {
+		grid-column: 1 / -1;
+		margin: 0;
+	}
+}
+
+.section-foot {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-md);
+	align-items: center;
+	margin-block-start: clamp(2rem, 1.5rem + 2vw, 3rem);
+}
+
+/* ---------- Splits and grids ---------- */
+
+.split {
+	display: grid;
+	gap: var(--gap);
+	align-items: center;
+}
+
+@media (min-width: 56rem) {
+	.split {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		column-gap: clamp(2rem, 1rem + 3vw, 4rem);
+	}
+
+	.split--wide-text {
+		grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+	}
+
+	.split--reverse > :first-child {
+		order: 2;
+	}
+
+	.split--top {
+		align-items: start;
+	}
+}
+
+.grid {
+	display: grid;
+	gap: var(--gap);
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--grid-min, 17rem)), 1fr));
+}
+
+.grid--sm {
+	--grid-min: 13rem;
+}
+
+.society-grid {
+	gap: clamp(1rem, 0.75rem + 1vw, 1.75rem);
+}
+
+.grid--lg {
+	--grid-min: 22rem;
+}
+
+@media (min-width: 40rem) {
+	.grid--2 {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 64rem) {
+	.grid--3 {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 40rem) and (max-width: 63.99rem) {
+	.grid--3 {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+.stack > * + * {
+	margin-block-start: var(--space-md);
+}
+
+.stack-lg > * + * {
+	margin-block-start: var(--space-xl);
+}

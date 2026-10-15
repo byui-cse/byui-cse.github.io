@@ -1,0 +1,261 @@
+/**
+ * Media slots: a framed area for photos and videos (see js/media-slots.js),
+ * and the stage where an interactive activity will be built later.
+ */
+.slot {
+	position: relative;
+	display: grid;
+	place-items: center;
+	aspect-ratio: var(--slot-ratio, 4 / 3);
+	overflow: hidden;
+	border-radius: var(--radius-lg);
+	border: 1px solid var(--color-line);
+	background:
+		radial-gradient(circle at 25% 20%, color-mix(in srgb, var(--color-band-accent) 22%, transparent), transparent 55%),
+		linear-gradient(145deg, color-mix(in srgb, var(--color-brand) 22%, var(--color-tint)), var(--color-tint));
+	text-align: center;
+}
+
+.slot--wide {
+	--slot-ratio: 16 / 9;
+}
+
+.slot--tall {
+	--slot-ratio: 4 / 3;
+}
+
+@media (min-width: 56rem) {
+	.slot--tall {
+		--slot-ratio: 4 / 5;
+	}
+}
+
+.hero .slot {
+	border-color: color-mix(in srgb, var(--color-on-band) 25%, transparent);
+	background:
+		radial-gradient(circle at 70% 25%, color-mix(in srgb, var(--color-band-accent) 30%, transparent), transparent 55%),
+		linear-gradient(145deg, color-mix(in srgb, var(--color-on-band) 18%, transparent), color-mix(in srgb, var(--color-on-band) 6%, transparent));
+	box-shadow: 0 2rem 4rem rgb(0 0 0 / 0.25);
+}
+
+/* Filled slot: A and B images or videos stacked, crossfading (see js/media-slots.js). */
+.slot__media {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	object-fit: cover;
+	opacity: 0;
+	transition: opacity 0.8s var(--ease);
+
+	&.is-active {
+		opacity: 1;
+	}
+}
+
+/* YouTube slots keep the video's 16:9 shape at full width, so there are no black bars. */
+.slot[data-media-cycle="video"] {
+	--slot-ratio: 16 / 9;
+	background: #000000;
+
+	/* Fade through black: the outgoing video fades out, then the next one fades in. */
+	.slot__media {
+		transition-duration: 0.4s;
+	}
+
+	.slot__media.is-active {
+		transition-delay: 0.4s;
+	}
+}
+
+/* The frame is taller than the slot, so YouTube's title bar (top) and buttons (bottom)
+   sit in the cropped-off space while the video itself fills the slot's width. */
+iframe.slot__media {
+	inset: auto 0;
+	top: -5rem;
+	height: calc(100% + 10rem);
+	pointer-events: none;
+}
+
+/* Click anywhere on a video to open the department channel. YouTube logo sits bottom right, like the real player. */
+.slot__channel-link {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+	padding: var(--space-sm);
+
+	&:focus-visible {
+		outline: 3px solid var(--color-focus);
+		outline-offset: -3px;
+	}
+
+	svg {
+		width: 2.75rem;
+		height: auto;
+		filter: drop-shadow(0 1px 3px rgb(0 0 0 / 0.5));
+		transition: transform var(--fast) var(--ease);
+	}
+
+	&:hover svg {
+		transform: scale(1.08);
+	}
+}
+
+/* Sound toggle, bottom left of a video slot. */
+.slot__sound {
+	position: absolute;
+	inset-block-end: var(--space-sm);
+	inset-inline-start: var(--space-sm);
+	z-index: 2;
+	display: grid;
+	place-items: center;
+	width: var(--touch-min);
+	height: var(--touch-min);
+	padding: 0;
+	border: 0;
+	border-radius: var(--radius-pill);
+	background: rgb(0 0 0 / 0.6);
+	color: #ffffff;
+	cursor: pointer;
+
+	svg {
+		width: 1.4rem;
+		height: 1.4rem;
+	}
+
+	.slot__sound-on {
+		display: none;
+	}
+
+	&[aria-pressed="true"] {
+		.slot__sound-on {
+			display: inline;
+		}
+
+		.slot__sound-off {
+			display: none;
+		}
+	}
+
+	&:focus-visible {
+		outline: 3px solid var(--color-focus);
+		outline-offset: 2px;
+	}
+}
+
+/* ---------- Activity slot ---------- */
+
+.activity {
+	display: grid;
+	gap: var(--gap);
+	padding: clamp(1.25rem, 1rem + 1.5vw, 2.5rem);
+	border-radius: var(--radius-lg);
+	border: 2px dashed var(--color-border);
+	background: var(--color-surface);
+}
+
+@media (min-width: 56rem) {
+	.activity {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+		align-items: center;
+	}
+}
+
+.activity__intro {
+	h3 {
+		margin-block: var(--space-xs) var(--space-sm);
+	}
+
+	p {
+		margin-block-end: var(--space-sm);
+	}
+}
+
+.activity__badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.2rem 0.75rem;
+	border-radius: var(--radius-pill);
+	background: var(--color-verify-bg);
+	color: var(--color-verify-ink);
+	font-family: var(--font-ui);
+	font-size: var(--text-min);
+	font-weight: var(--weight-bold);
+}
+
+/* A quiet grid that hints at the robot board or breadboard. */
+.activity__stage {
+	--slot-ratio: 16 / 10;
+	background:
+		linear-gradient(90deg, var(--color-line) 1px, transparent 1px) 0 0 / 12.5% 20%,
+		linear-gradient(var(--color-line) 1px, transparent 1px) 0 0 / 12.5% 20%,
+		var(--color-tint);
+}
+
+.activity__stage--dots {
+	background:
+		radial-gradient(circle, var(--color-border) 1.5px, transparent 2px) 0 0 / 1.5rem 1.5rem,
+		var(--color-tint);
+}
+
+/* ---------- Challenge teasers: a card per game; playable ones open full screen ---------- */
+
+.challenge-card {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	border: 1px solid var(--color-line);
+	border-radius: var(--radius-lg);
+	background: var(--color-surface);
+	box-shadow: var(--shadow-sm);
+
+}
+
+/* Clicking the art opens the game too; the Play button is the keyboard route. */
+.challenge-card__art {
+	display: block;
+	cursor: pointer;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 2 / 1;
+}
+
+.challenge-card__body {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--space-sm);
+	padding: clamp(1.25rem, 1rem + 1vw, 2rem);
+
+	h3,
+	p {
+		margin: 0;
+	}
+
+	.button,
+	.activity__badge {
+		margin-block-start: auto;
+	}
+}
+
+/* The game popup is wider than a Learn panel and drops the dashed frame but keeps the card padding. */
+.learn--game {
+	.learn__inner {
+		width: min(76rem, 100% - (var(--gutter) * 2));
+	}
+
+	.activity {
+		border: 0;
+	}
+}
+
+/* Teaser art used outside the Challenges grid (e.g. the Software Engineering circuit spot). */
+.activity__art {
+	border-radius: var(--radius-lg);
+}

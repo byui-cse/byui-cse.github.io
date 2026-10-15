@@ -1,0 +1,147 @@
+/**
+ * Learn dialog: "What you just did / The idea / Where you'd learn it / The human part".
+ * Shared by every interactive moment (and the robot win modal).
+ * Fills the screen like the mobile menu: the dialog is the scroll container, the
+ * content is a centered column, and sections flow into columns on wider screens.
+ */
+.learn {
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	max-height: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: var(--color-surface);
+	color: var(--color-ink);
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	-webkit-overflow-scrolling: touch;
+
+	&::backdrop {
+		background: rgb(5 15 30 / 0.55);
+		backdrop-filter: blur(3px);
+	}
+
+	&[open] {
+		animation: learn-in var(--base) var(--ease);
+	}
+}
+
+/* Keep the page behind an open dialog from scrolling. */
+html:has(dialog.learn[open]) {
+	overflow: hidden;
+	scrollbar-gutter: stable;
+}
+
+@keyframes learn-in {
+	from {
+		opacity: 0;
+		transform: translateY(1.5rem);
+	}
+}
+
+/* Centered on both axes when it fits; scrolls from the top when it does not. */
+.learn__inner {
+	box-sizing: border-box;
+	display: grid;
+	align-content: center;
+	gap: var(--space-lg);
+	width: min(44rem, 100% - (var(--gutter) * 2));
+	min-height: 100%;
+	margin-inline: auto;
+	padding-block: calc(var(--touch-min) + var(--space-xl)) var(--space-2xl);
+}
+
+.learn__head {
+	text-align: center;
+
+	h2 {
+		margin: 0;
+		font-size: var(--text-h2);
+	}
+
+	.eyebrow {
+		margin-block-end: var(--space-xs);
+	}
+}
+
+/*
+ * Sticky (not fixed) so it stays reachable while the dialog scrolls and does not
+ * jump during the open animation. The negative bottom margin takes it out of the
+ * content's flow, so the content still centers in the full screen.
+ */
+.learn__close {
+	--learn-close-top: max(var(--space-md), env(safe-area-inset-top));
+
+	position: sticky;
+	inset-block-start: var(--learn-close-top);
+	margin-block: var(--learn-close-top) calc(-1 * (var(--touch-min) + var(--learn-close-top)));
+	margin-inline: auto max(var(--space-lg), env(safe-area-inset-right));
+	z-index: 1;
+	display: grid;
+	place-items: center;
+	width: var(--touch-min);
+	height: var(--touch-min);
+	border: 1px solid var(--color-border);
+	border-radius: 50%;
+	background: var(--color-surface);
+	color: var(--color-ink);
+	font-size: 1.5rem;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.learn__section {
+	padding-block-start: var(--space-lg);
+	border-block-start: 1px solid var(--color-line);
+
+	> :last-child {
+		margin-block-end: 0;
+	}
+}
+
+.learn__section h3 {
+	margin-block-end: var(--space-xs);
+	color: var(--color-link);
+	font-family: var(--font-ui);
+	font-size: var(--text-min);
+	font-weight: var(--weight-bold);
+	letter-spacing: var(--tracking-eyebrow);
+	text-transform: uppercase;
+}
+
+.learn__section--human {
+	font-family: var(--font-quote);
+	font-size: var(--text-lede);
+	font-style: italic;
+	line-height: 1.4;
+	text-align: center;
+}
+
+/* Wider screens: sections side by side; title and closing line span the full width. */
+@media (min-width: 48rem) {
+	.learn__inner:has(> .learn__section) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		column-gap: var(--space-xl);
+		width: min(64rem, 100% - (var(--gutter) * 2));
+	}
+
+	.learn__head,
+	.learn__section--human {
+		grid-column: 1 / -1;
+	}
+
+	.learn__head {
+		margin-block-end: var(--space-sm);
+	}
+}
+
+/* Three content sections (head + 3 + closing line) read best as three columns. */
+@media (min-width: 64rem) {
+	.learn__inner:has(> .learn__section):has(> :last-child:nth-child(5)) {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		width: min(76rem, 100% - (var(--gutter) * 2));
+	}
+}

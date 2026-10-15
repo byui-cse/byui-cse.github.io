@@ -1,0 +1,16 @@
+{
+    "name": "byui-cse-website",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "node lib/cli/build.js --production",
+        "dev": "node lib/cli/build.js --dev",
+        "verify": "node lib/cli/verify.js"
+    },
+    "engines": {
+        "node": ">=20"
+    },
+    "devDependencies": {
+        "lightningcss-cli": "^1.33.0"
+    }
+}

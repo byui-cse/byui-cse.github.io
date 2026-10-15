@@ -1,0 +1,95 @@
+<section class="section" id="path" aria-labelledby="path-title">
+	<div class="container">
+		<div class="section-head section-head--row">
+			<p class="eyebrow">Your Path</p>
+			<h2 id="path-title">What Four Years Can Look Like</h2>
+			<p class="lede">Pick your degree and see the core courses you will take. Your advisor helps you shape the rest.</p>
+		</div>
+		<div class="path-switcher" role="group" aria-label="Choose your specialty">
+			<span class="path-switcher__label">Choose Your Specialty:</span>
+			<button type="button" class="path-switcher__button" data-path-choice="cs" aria-pressed="true">Computer Science</button>
+			<button type="button" class="path-switcher__button" data-path-choice="se" aria-pressed="false">Software Engineering</button>
+		</div>
+
+		<div data-path-panel="cs">
+			<!-- Source: BYU-Idaho 2026-2027 Computer Science 8-semester plan, checked 2026-10-15. ECEN 106, WDD 130/131, DS 250, ITM 220, ITM 350, and MATH 119 are required (non-italic). -->
+			<ol class="path">
+				<li class="path__stage"><span class="path__when">Year 1</span><h3>Learn to Build</h3><ul>
+					<li><span class="code">CSE 110</span>Introduction to Programming</li>
+					<li><span class="code">CSE 111</span>Programming with Functions</li>
+					<li><span class="code">CSE 170</span>Technical Teamwork</li>
+					<li><span class="code">CSE 199R</span>Freshman Discovery Project</li>
+					<li><span class="code">ECEN 106</span>Computer Systems</li>
+					<li><span class="code">WDD 130 &middot; WDD 131</span>Web Fundamentals, Dynamic Web Fundamentals</li>
+					<li><span class="code">Electives</span>Room for a minor, more depth, or another passion</li>
+				</ul></li>
+				<li class="path__stage"><span class="path__when">Year 2</span><h3>Build the Foundation</h3><ul>
+					<li><span class="code">CSE 210</span>Programming with Classes</li>
+					<li><span class="code">CSE 212</span>Programming with Data Structures</li>
+					<li><span class="code">CSE 280 &middot; MATH 119</span>Discrete Mathematics, Calculus</li>
+					<li><span class="code">CSE 310</span>Applied Programming</li>
+					<li><span class="code">CSE 370</span>Software Engineering Principles</li>
+					<li><span class="code">DS 250</span>Data Science Programming</li>
+					<li><span class="code">ITM 220</span>SQL</li>
+					<li><span class="code">Electives</span>Room for a minor, more depth, or another passion</li>
+				</ul></li>
+				<li class="path__stage"><span class="path__when">Year 3</span><h3>Go Deep</h3><ul>
+					<li><span class="code">CSE 300</span>Professional Readiness</li>
+					<li><span class="code">CSE 351</span>Parallelism &amp; Concurrency</li>
+					<li><span class="code">CSE 381</span>Algorithms &amp; Complexity</li>
+					<li><span class="code">CSE 382</span>Patterns &amp; Data Structures</li>
+					<li><span class="code">CSE 399R</span>Product Development Project</li>
+					<li><span class="code">ITM 350</span>DevOps</li>
+					<li><span class="code">Electives</span>Room for a minor, more depth, or another passion</li>
+				</ul></li>
+				<li class="path__stage"><span class="path__when">Internship and Year 4</span><h3>Work and Specialize</h3><ul>
+					<li><span class="code">CSE 398</span>Internship, usually between semesters</li>
+					<li><span class="code">CSE 4xx</span>Two advanced topics you choose</li>
+					<li><span class="code">Electives</span>Room for a minor, more depth, or another passion</li>
+				</ul></li>
+			</ol>
+		</div>
+
+		<div data-path-panel="se" hidden>
+			<!-- Source: BYU-Idaho 2026-2027 Software Engineering 8-semester plans (all four emphases), checked 2026-10-15. Required for every SE emphasis: ECEN 106, WDD 130/131, ITM 220, ITM 350. No DS, MATH, or CSE 381 requirement. -->
+			<ol class="path">
+				<li class="path__stage"><span class="path__when">Year 1</span><h3>Learn to Build</h3><ul>
+					<li><span class="code">CSE 110</span>Introduction to Programming</li>
+					<li><span class="code">CSE 111</span>Programming with Functions</li>
+					<li><span class="code">CSE 170</span>Technical Teamwork</li>
+					<li><span class="code">CSE 199R</span>Freshman Discovery Project</li>
+					<li><span class="code">ECEN 106</span>Computer Systems</li>
+					<li><span class="code">WDD 130 &middot; WDD 131</span>Web Fundamentals, Dynamic Web Fundamentals</li>
+					<li><span class="code">Electives</span>Room for a minor, more depth, or another passion</li>
+				</ul></li>
+				<li class="path__stage"><span class="path__when">Year 2</span><h3>Build the Foundation</h3><ul>
+					<li><span class="code">CSE 210</span>Programming with Classes</li>
+					<li><span class="code">CSE 212</span>Programming with Data Structures</li>
+					<li><span class="code">CSE 310</span>Applied Programming</li>
+					<li><span class="code">ITM 220</span>SQL</li>
+					<li><span class="code">Emphasis</span>Start the courses for your emphasis</li>
+				</ul></li>
+				<li class="path__stage"><span class="path__when">Year 3</span><h3>Ship with Your Team</h3><ul>
+					<li><span class="code">CSE 300</span>Professional Readiness</li>
+					<li><span class="code">CSE 370</span>Software Engineering Principles</li>
+					<li><span class="code">CSE 399R</span>Product Development Project</li>
+					<li><span class="code">ITM 350</span>DevOps</li>
+					<li><span class="code">Emphasis</span>Go deeper in the area you chose</li>
+				</ul>
+					<div class="path__options"><h4>Choose an Emphasis</h4><ul class="path__module-list">
+						<li>Software Design</li>
+						<li>Full Stack Web Development</li>
+						<li>Embedded Systems</li>
+						<li>Quality Assurance</li>
+					</ul></div>
+				</li>
+				<li class="path__stage"><span class="path__when">Internship and Year 4</span><h3>Show What You Can Do</h3><ul>
+					<li><span class="code">CSE 398</span>Internship, usually between semesters</li>
+					<li><span class="code">CSE 499</span>Senior Project</li>
+					<li><span class="code">Electives</span>Room for a minor, more depth, or another passion</li>
+				</ul></li>
+			</ol>
+		</div>
+		<p class="source-note">This is one suggested sequence. <a href="https://www.byui.edu/computer-science-engineering/student-resources/suggested-course-plans-and-flowcharts" target="_blank" rel="noopener noreferrer">Review other course-plan options and flowcharts</a>, then tailor a specific plan with an advisor today.</p>
+	</div>
+</section>
