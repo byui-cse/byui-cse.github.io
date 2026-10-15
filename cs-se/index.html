@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Computer Science &amp; Software Engineering | BYU-Idaho</title>
+	<meta name="description" content="Technology is getting smarter every day. Someone still has to understand it, question it, and decide what gets built. Computer Science and Software Engineering at BYU-Idaho.">
+	<meta name="theme-color" content="#004c86">
+	<link rel="preload" href="fonts/source-sans-3-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="fonts/source-serif-4-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/robot.js" defer></script>
+
+	<!-- Runs before first paint so the page opens at the visitor's saved Lights level. -->
+	<script src="js/lights-core.js"></script>
+	<script src="js/nav.js" defer></script>
+	<script src="js/lights-ui.js" defer></script>
+	<script src="js/media-slots.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+	<div class="site-header__inner container">
+		<a class="brand" href="index.html">
+			<span class="brand__name">BYU-Idaho</span>
+			<span class="brand__dept">Computer Science &amp; Software Engineering</span>
+		</a>
+
+		<div class="lights" data-lights-control>
+			<button class="lights__toggle" type="button" aria-expanded="false" aria-controls="lights-panel" data-lights-toggle>
+				<svg class="lights__bulb" viewBox="0 0 24 24" aria-hidden="true">
+					<g class="lights__rays" stroke-width="1.6" stroke-linecap="round">
+						<path d="M12 0.8v1.6M3.2 4.2l1.2 1.2M20.8 4.2l-1.2 1.2M0.8 12h1.6M21.6 12h1.6"/>
+					</g>
+					<path class="lights__glow" d="M12 4.5a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V18h5.2v-.7c0-.8.4-1.5 1-2A6 6 0 0 0 12 4.5z"/>
+					<path class="lights__glass" stroke-width="1.6" d="M12 4.5a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V18h5.2v-.7c0-.8.4-1.5 1-2A6 6 0 0 0 12 4.5zM9.6 20.5h4.8M10.4 22.8h3.2"/>
+				</svg>
+				<span class="lights__label">Lights</span>
+			</button>
+			<div class="lights__panel" id="lights-panel" data-lights-panel hidden>
+				<div class="lights__head">
+					<label for="lights-range">Page Brightness</label>
+					<output class="lights__value" for="lights-range" data-lights-value>100%</output>
+				</div>
+				<div class="lights__row">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 15.3A8.5 8.5 0 0 1 8.7 4a8.5 8.5 0 1 0 11.3 11.3z"/></svg>
+					<input class="lights__range" id="lights-range" type="range" min="1" max="100" step="1" value="100" data-lights-range>
+					<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 1.5v2.5M12 20v2.5M1.5 12H4M20 12h2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+				</div>
+				<button class="lights__learn" type="button" data-learn-open="learn-lights">How Does This Work?</button>
+			</div>
+		</div>
+
+		<nav class="site-nav" aria-label="Primary">
+			<button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+				<svg class="site-nav__icon site-nav__icon--menu" viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M3 6h18M3 12h18M3 18h18"/></svg>
+				<svg class="site-nav__icon site-nav__icon--close" viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="m5 5 14 14M19 5 5 19"/></svg>
+				<span class="site-nav__label">Menu</span>
+			</button>
+			<div class="site-nav__panel" id="primary-nav">
+				<ul class="site-nav__list">
+					<li><a class="site-nav__link" href="computer-science.html" data-nav="computer-science">Computer Science</a></li>
+					<li><a class="site-nav__link" href="software-engineering.html" data-nav="software-engineering">Software Engineering</a></li>
+					<li><a class="site-nav__link" href="projects.html" data-nav="projects">Student Work</a></li>
+					<li><a class="site-nav__link" href="life.html" data-nav="life">Life Here</a></li>
+					<li><a class="site-nav__link" href="families.html" data-nav="families">Families</a></li>
+				</ul>
+				<a class="button button--small" href="https://www.byui.edu/admissions/" target="_blank" rel="noopener noreferrer">Apply</a>
+			</div>
+		</nav>
+	</div>
+</header>
+
+<dialog class="learn" id="learn-lights" aria-labelledby="learn-lights-title">
+	<button class="learn__close" type="button" data-learn-close aria-label="Close">&times;</button>
+	<div class="learn__inner">
+		<div class="learn__head">
+			<div>
+				<p class="eyebrow">What You Just Learned</p>
+				<h2 id="learn-lights-title">One Number Repainted the Whole Page</h2>
+			</div>
+		</div>
+		<div class="learn__section">
+			<h3>What You Just Did</h3>
+			<p>When you moved the slider, a small program took your number, calculated a new set of colors, and swapped them into the page while you watched.</p>
+		</div>
+		<div class="learn__section">
+			<h3>The Idea behind It</h3>
+			<ul>
+				<li><strong>Variables and Events:</strong> The page listens for you to move the slider and stores your choice in a variable.</li>
+				<li><strong>Color Math:</strong> Every color is calculated so text stays readable at every level, from 1% to 100%.</li>
+				<li><strong>Saving a Preference:</strong> Your browser remembers your setting for the next visit.</li>
+				<li><strong>Accessibility:</strong> The program checks contrast so people with low vision can still read the page.</li>
+			</ul>
+		</div>
+		<div class="learn__section">
+			<h3>Where You Would Learn This</h3>
+			<p>CSE 110 Introduction to Programming, WDD 130 Web Fundamentals, and WDD 131 Dynamic Web Fundamentals, all in your first two semesters.</p>
+		</div>
+		<div class="learn__section learn__section--human">
+			<p>A computer can change a color. A person decides whether everyone can still read it.</p>
+		</div>
+	</div>
+</dialog>
+
+
+<main id="main">
+
+	<!-- 1. Hero -->
+	<section class="hero" aria-labelledby="hero-title">
+		<div class="container split split--wide-text">
+			<div>
+				<p class="eyebrow">Computer Science &amp; Software Engineering at BYU-Idaho</p>
+				<h1 id="hero-title">Build What <em>Comes&nbsp;Next.</em></h1>
+				<p class="lede">
+					Technology keeps getting smarter. We don&rsquo;t settle for the technology we inherit.
+					We challenge it, improve it, and decide what gets built. Come build it with us.
+				</p>
+				<div class="button-row">
+					<a class="button" href="projects.html">See What Students Build <span class="arrow" aria-hidden="true">&rarr;</span></a>
+					<a class="button button--secondary" href="#cs-or-se">Find Your Major</a>
+				</div>
+				<ul class="hero__facts">
+					<li>Program from day one</li>
+					<li>Team projects by semester two</li>
+					<li>An internship built in</li>
+				</ul>
+			</div>
+			<div class="hero__media">
+				<div class="slot slot--tall" data-media-cycle="video">
+					<iframe class="slot__media is-active" src="https://www.youtube-nocookie.com/embed/D9AfIfSCKIs?autoplay=1&amp;mute=1&amp;start=30&amp;controls=0&amp;disablekb=1&amp;playsinline=1&amp;rel=0&amp;iv_load_policy=3&amp;cc_load_policy=0&amp;enablejsapi=1" title="Hackathon Fall 2025" tabindex="-1" loading="lazy" allow="autoplay; encrypted-media"></iframe><iframe class="slot__media" src="https://www.youtube-nocookie.com/embed/LNw7vEkjmIg?mute=1&amp;start=30&amp;controls=0&amp;disablekb=1&amp;playsinline=1&amp;rel=0&amp;iv_load_policy=3&amp;cc_load_policy=0&amp;enablejsapi=1" title="Winter 2025 Student Game Expo" tabindex="-1" loading="lazy" allow="autoplay; encrypted-media"></iframe>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 2. Quote: right under the hero -->
+	<section class="section section--tint section--tight" aria-label="A quote from Elder Gerrit W. Gong">
+		<div class="container">
+			<figure class="quote quote--wide">
+				<blockquote>
+					<p>We want to enhance critical thinking, problem solving, and creativity.</p>
+				</blockquote>
+				<figcaption>
+					<span class="quote__name">Elder Gerrit W. Gong<br><span class="quote__calling">Quorum of the Twelve Apostles</span></span>
+					<span class="quote__source"><a href="https://speeches.byu.edu/talks/gerrit-w-gong/becoming-byu-in-an-age-of-artificial-intelligence/" target="_blank" rel="noopener noreferrer">&ldquo;Becoming BYU in an Age of Artificial Intelligence,&rdquo;</a> BYU University Conference, August 24, 2026</span>
+				</figcaption>
+			</figure>
+		</div>
+	</section>
+
+	<!-- 3. What could you build? -->
+	<section class="section" aria-labelledby="build-title">
+		<div class="container">
+			<div class="section-head section-head--row">
+				<p class="eyebrow">Your Ideas. Your Hands. Your Name on It.</p>
+				<h2 id="build-title" class="display">We Make Real Things.</h2>
+				<p class="lede">You decide what to build. You design it, program it, test it, and ship it, and real people use it. Every decision is yours, and so is the result. Here is the kind of work you will do, from your first semester to your senior project.</p>
+			</div>
+
+			<div class="grid grid--3">
+				<article class="card">
+					<span class="card__icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg>
+					</span>
+					<h3>Apps and Websites</h3>
+					<p>Design the user interface, build the APIs and database behind it, and deploy the whole stack. You launch your first website your first semester.</p>
+				</article>
+				<article class="card">
+					<span class="card__icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg>
+					</span>
+					<h3>Code inside Real Devices</h3>
+					<p>Cars, medical equipment, and smart gadgets all run on firmware someone had to write. Program microcontrollers, read sensors, and make hardware respond in real time.</p>
+				</article>
+				<article class="card">
+					<span class="card__icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3.5v6c0 5-3.5 8.5-8 10.5-4.5-2-8-5.5-8-10.5v-6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+					</span>
+					<h3>Security</h3>
+					<p>Reverse engineer systems, run penetration tests, and patch vulnerabilities before an attacker finds them. Sharpen your skills with the Society of Cybersecurity.</p>
+				</article>
+				<article class="card">
+					<span class="card__icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+					</span>
+					<h3>Data and Machine Learning</h3>
+					<p>Clean raw data with Python and SQL, train machine learning models, and learn how intelligent systems work from the inside out.</p>
+				</article>
+				<article class="card">
+					<span class="card__icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="6" rx="1.5"/><rect x="3" y="11" width="18" height="6" rx="1.5"/><path d="M7 6h.01M7 14h.01M12 21h0M8 21h8"/></svg>
+					</span>
+					<h3>Systems That Scale</h3>
+					<p>Pick the right data structures and algorithms, run work in parallel, and ship to the cloud through a DevOps pipeline. Fast for ten users or ten million.</p>
+				</article>
+				<article class="card">
+					<span class="card__icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.5c2.3.2 4 1.8 4.5 4.5"/></svg>
+					</span>
+					<h3>Products for Real People</h3>
+					<p>Interview users, prototype the UI/UX, track every change in version control, and ship with a real team, starting with the Freshman Discovery Project your second semester.</p>
+				</article>
+			</div>
+
+			<div class="activity activity--game mt-2xl" aria-labelledby="robot-title">
+				<div class="activity__intro">
+					<span class="activity__badge activity__badge--live">Try It: 60 Seconds</span>
+					<h3 id="robot-title">Guide the Robot</h3>
+					<p>Tap command blocks to build a program that steers the robot to the gold target, then press Run. Earn all three stars with the shortest path and the fewest blocks.</p>
+					<p class="meta"><a href="challenges.html">Want harder levels? Try the Challenges.</a></p>
+					<div class="activity__learn">
+						<p class="activity__learn-title">Skills You Are Practicing</p>
+						<ul class="tag-list"><li>Sequencing</li><li>Loops</li><li>Debugging</li><li>Optimization</li></ul>
+						<p>This puzzle runs on HTML, CSS, JavaScript, and a search algorithm that finds the best possible answer. You can learn to build tools like it.</p>
+						<button class="activity__learn-open" type="button" data-learn-open="learn-robot">How to Build This &rarr;</button>
+					</div>
+				</div>
+				<div class="robot" data-robot="home" data-robot-learn="learn-robot"><p class="robot__noscript">Turn on JavaScript to play the robot puzzle.</p></div>
+			</div>
+
+			<div class="section-foot">
+				<a class="button button--secondary" href="projects.html">See Real Student Projects <span class="arrow" aria-hidden="true">&rarr;</span></a>
+			</div>
+		</div>
+	</section>
+
+	<!-- 4. People first -->
+	<section class="section section--tint" aria-labelledby="people-title">
+		<div class="container">
+			<div class="section-head section-head--row">
+				<p class="eyebrow">People First. Tools Second.</p>
+				<h2 id="people-title">Challenge It. Improve It. Build What Comes Next.</h2>
+					<p class="lede">Tools can generate a first draft. We train the people who decide what is worth building, whether it works, and who it helps.</p>
+			</div>
+
+			<ol class="pillars pillars--3">
+				<li>
+					<h3>Challenge It</h3>
+					<p>Question every answer, even the confident ones. Reverse engineer systems, trace bugs to their source, and find the flaw everyone else missed.</p>
+				</li>
+				<li>
+					<h3>Improve It</h3>
+					<p>Master the fundamentals from scratch: Variables, classes, data structures, and algorithms. Then make software faster, safer, and easier to use.</p>
+				</li>
+				<li>
+					<h3>Build What Comes Next</h3>
+					<p>Ship real products with real teammates from your second semester on. Put every modern tool to work, including AI, and own the result.</p>
+				</li>
+			</ol>
+		</div>
+	</section>
+
+	<!-- 5. CS or SE -->
+	<section class="section" id="cs-or-se" aria-labelledby="fit-title">
+		<div class="container">
+			<div class="section-head section-head--row">
+				<p class="eyebrow">Find Your Fit</p>
+				<h2 id="fit-title">Computer Science or Software Engineering?</h2>
+				<p class="lede">Both majors teach you to program, collaborate, and build, and both share nearly the same first year. The difference is the kind of problem that lights you up.</p>
+			</div>
+
+			<div class="grid grid--2">
+				<article class="major-card">
+					<p class="eyebrow">Computer Science</p>
+					<h3>Solve Hard Problems</h3>
+					<p class="major-card__question">How do you make a computer solve a hard problem fast, and prove the answer is right?</p>
+					<h4>You Might Love This If You</h4>
+					<ul class="checklist">
+						<li>Love logic puzzles, math, and finding the most efficient answer</li>
+						<li>Want to know how computers work underneath, down to the hardware</li>
+						<li>Wonder how search engines, maps, and smart systems really work</li>
+						<li>Might want graduate school someday</li>
+					</ul>
+					<div class="button-row">
+						<a class="button" href="computer-science.html">Explore Computer Science <span class="arrow" aria-hidden="true">&rarr;</span></a>
+					</div>
+				</article>
+				<article class="major-card">
+					<p class="eyebrow">Software Engineering</p>
+					<h3>Build Things People Use</h3>
+					<p class="major-card__question">How do you build software a whole team can trust and real people love to use?</p>
+					<h4>You Might Love This If You</h4>
+					<ul class="checklist">
+						<li>Like making things people actually use</li>
+						<li>Enjoy UI/UX design, teamwork, and watching a product come together</li>
+						<li>Want to specialize in software design, full stack web, embedded systems, or quality assurance</li>
+						<li>Want to go straight into industry</li>
+					</ul>
+					<div class="button-row">
+						<a class="button" href="software-engineering.html">Explore Software Engineering <span class="arrow" aria-hidden="true">&rarr;</span></a>
+					</div>
+				</article>
+			</div>
+
+			<div class="callout mt-2xl">
+				<h3>You Do Not Have to Decide on Day One</h3>
+					<p>Both majors start with CSE 110 Introduction to Programming, web fundamentals, and computer systems. Start now and choose once you know what you enjoy.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- 6. Life here preview -->
+	<section class="section section--surface" aria-labelledby="life-title">
+		<div class="container split">
+			<div>
+				<p class="eyebrow">Life Here</p>
+				<h2 id="life-title">Find Your People</h2>
+				<p class="lede">
+					Every Wednesday at 5:00 PM, the STC quad turns into a hangout for builders.
+					Grab some food, open your laptop, and hack on projects with friends who are into cyber defense, cloud apps, data, drones, and more.
+				</p>
+				<ul class="tag-list">
+					<li>Video Game Design</li>
+					<li>Cybersecurity</li>
+					<li>Drones (UAS)</li>
+					<li>AI</li>
+					<li>Hackathon</li>
+					<li>Web</li>
+					<li>Data Science</li>
+					<li>Cloud Solutions</li>
+					<li>Linux and Open Source</li>
+					<li>Formula Hybrid Electric</li>
+					<li>Amateur Radio</li>
+					<li>IEEE</li>
+					<li>Society of Women Engineers</li>
+				</ul>
+				<div class="section-foot">
+					<a class="button" href="life.html">See Life at BYU-Idaho <span class="arrow" aria-hidden="true">&rarr;</span></a>
+				</div>
+			</div>
+			<div class="slot" data-media-cycle="video">
+				<iframe class="slot__media is-active" src="https://www.youtube-nocookie.com/embed/WNSm5ODrRo8?autoplay=1&amp;mute=1&amp;start=30&amp;controls=0&amp;disablekb=1&amp;playsinline=1&amp;rel=0&amp;iv_load_policy=3&amp;cc_load_policy=0&amp;enablejsapi=1" title="CSE Fall 2025 Opening Social" tabindex="-1" loading="lazy" allow="autoplay; encrypted-media"></iframe><iframe class="slot__media" src="https://www.youtube-nocookie.com/embed/D9AfIfSCKIs?mute=1&amp;start=30&amp;controls=0&amp;disablekb=1&amp;playsinline=1&amp;rel=0&amp;iv_load_policy=3&amp;cc_load_policy=0&amp;enablejsapi=1" title="Hackathon Fall 2025" tabindex="-1" loading="lazy" allow="autoplay; encrypted-media"></iframe>
+			</div>
+		</div>
+	</section>
+
+	<!-- 7. Where it leads -->
+	<section class="section" aria-labelledby="careers-title">
+		<div class="container">
+			<div class="section-head section-head--row">
+				<p class="eyebrow">Where It Can Lead</p>
+				<h2 id="careers-title">Real Careers, in Plain Words</h2>
+				<p class="lede">Job titles can sound vague. Here is what people in these roles actually do all day, and what graduates have reported earning.</p>
+			</div>
+
+			<div class="split split--top">
+				<dl class="careers">
+					<div class="careers__row">
+						<dt>Builds the apps and websites people use every day</dt>
+						<dd>Software Engineer</dd>
+					</div>
+					<div class="careers__row">
+						<dt>Designs the architecture: How services, databases, and APIs fit together so the system never falls over</dt>
+						<dd>Software Architect</dd>
+					</div>
+					<div class="careers__row">
+						<dt>Writes automated tests and tries to break the software before a customer does</dt>
+						<dd>Quality Assurance Engineer</dd>
+					</div>
+					<div class="careers__row">
+						<dt>Writes the firmware inside cars, medical equipment, and smart devices</dt>
+						<dd>Embedded Systems Engineer</dd>
+					</div>
+					<div class="careers__row">
+						<dt>Builds the front end you see and the back end, APIs, and databases behind it</dt>
+						<dd>Full Stack Web Developer</dd>
+					</div>
+				</dl>
+
+				<div>
+					<h3>Average Salary after Graduation</h3>
+					<dl class="stats">
+						<div class="stat">
+							<dt>Computer Science, starting</dt>
+							<dd>$79,787</dd>
+						</div>
+						<div class="stat">
+							<dt>Computer Science, 10 years</dt>
+							<dd>$138,529</dd>
+						</div>
+						<div class="stat">
+							<dt>Software Engineering, starting</dt>
+							<dd>$74,476</dd>
+						</div>
+						<div class="stat">
+							<dt>Software Engineering, 5 years</dt>
+							<dd>$113,931</dd>
+						</div>
+					</dl>
+					<p class="source-note">
+						Reported average earnings for BYU-Idaho graduates of each major, from federal Post-Secondary Employment Outcomes (PSEO) data as published on the
+						<a href="https://www.byui.edu/majors/computer-science-bs" target="_blank" rel="noopener noreferrer">Computer Science</a> and
+						<a href="https://www.byui.edu/majors/software-engineering-bs" target="_blank" rel="noopener noreferrer">Software Engineering</a> major pages. <!-- Sources checked October 7, 2026; review during the next content refresh. -->
+						Starting salary means earnings in the first year after graduation. Earnings vary by person and are not a guarantee.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 8. FAQ -->
+	<section class="section section--tint" aria-labelledby="faq-title">
+		<div class="container split split--top">
+			<div class="section-head">
+				<p class="eyebrow">Straight Answers</p>
+				<h2 id="faq-title">Questions Students Ask Us</h2>
+				<p class="lede">Good questions deserve honest answers. Do not see yours? Ask BYU-Idaho AI or reach out to the CSE Department.</p>
+			</div>
+
+			<div class="faq">
+				<details class="faq__item" name="faq">
+					<summary>I Have Never Programmed. Can I Start Here?</summary>
+					<div class="faq__answer">
+						<p>Yes. Both majors begin with CSE 110 Introduction to Programming in your first semester. Many students write their very first program there.</p>
+						<p>Already programming? Take the <a href="https://www.byui.edu/computer-science-engineering/student-resources/study-help#testout" target="_blank" rel="noopener noreferrer">Programming Placement Test (LUC)</a>. Pass it, skip CSE 110, and jump straight to CSE 111 Programming with Functions.</p>
+					</div>
+				</details>
+				<details class="faq__item" name="faq">
+					<summary>Why Learn to Program When Computers Can Write Code?</summary>
+					<div class="faq__answer">
+						<p>Because generated code is only a first draft, and someone has to know whether it is right. That takes skills no prompt replaces: User research to learn what people actually need, UI/UX design that makes software usable, system architecture that holds up under real traffic, security testing that catches vulnerabilities, and the debugging and reverse engineering it takes to fix what breaks. Our students learn the newest tools, including AI, and learn enough to direct them, check them, and stand behind the result.</p>
+					</div>
+				</details>
+				<details class="faq__item" name="faq">
+					<summary>Are There Still Jobs?</summary>
+					<div class="faq__answer">
+						<p>Yes, and the field is changing. Entry-level hiring is more competitive than it was a few years ago, so employers look for graduates who can show what they have built: Deployed apps, code they can walk through in a technical interview, team projects, and internship experience. Both majors build that portfolio with team projects, a professional readiness course, and an internship.</p>
+					</div>
+				</details>
+				<details class="faq__item" name="faq">
+					<summary>Do I Need to Be Good at Math?</summary>
+					<div class="faq__answer">
+						<p>You need to be willing to work at it. Computer Science includes calculus and discrete math, the math behind algorithms, cryptography, and machine learning. Software Engineering plans include a quantitative reasoning or statistics course and lean more on design and teamwork. In both, clear logical thinking matters more than being a &ldquo;math person,&rdquo; and it grows with practice.</p>
+					</div>
+				</details>
+				<details class="faq__item" name="faq">
+					<summary>Will I Just Sit Alone at a Computer?</summary>
+					<div class="faq__answer">
+						<p>Not even close. You work on teams starting in your second semester, review each other&rsquo;s code, demo your work, test it with real users, and join societies that defend networks, launch cloud apps, and design a hybrid electric race car.</p>
+					</div>
+				</details>
+				<details class="faq__item" name="faq">
+					<summary>How Are New Tools like AI Handled in Class?</summary>
+					<div class="faq__answer">
+						<p>Clearly. Each instructor sets expectations for when tools like AI may be used in their course, and students are expected to do their own work and be honest about how they used any tool. <a href="https://www.byui.edu/ai/academics/integrity" target="_blank" rel="noopener noreferrer">Read BYU-Idaho&rsquo;s guidance on academic integrity and AI use.</a></p>
+					</div>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- 9. Next step -->
+	<section class="section section--brand" aria-labelledby="next-title">
+		<div class="container split">
+			<div>
+				<p class="eyebrow">Your Next Step</p>
+				<h2 id="next-title">Start Building What Comes Next</h2>
+				<p class="lede">Apply to BYU-Idaho, explore a major, or get a quick answer to your question. Your first project is closer than you think.</p>
+			</div>
+			<div class="stack">
+				<div class="button-row">
+					<a class="button" href="https://www.byui.edu/admissions/" target="_blank" rel="noopener noreferrer">Apply to BYU-Idaho <span class="arrow" aria-hidden="true">&rarr;</span></a>
+					<a class="button button--secondary" href="https://agenthub.byui.edu/guest" target="_blank" rel="noopener noreferrer">Ask BYU-Idaho AI</a>
+				</div>
+				<p class="meta">BYU-Idaho AI answers general questions about majors, admissions, and campus life, any time of day.</p>
+			</div>
+		</div>
+	</section>
+
+</main>
+
+<dialog class="learn" id="learn-robot" aria-labelledby="learn-robot-title">
+	<button class="learn__close" type="button" data-learn-close aria-label="Close">&times;</button>
+	<div class="learn__inner">
+		<div class="learn__head">
+			<div>
+				<p class="eyebrow">Skills behind the Puzzle</p>
+				<h2 id="learn-robot-title">How This Puzzle Works and How to Build It</h2>
+			</div>
+		</div>
+		<div class="learn__section">
+			<h3>What You Do</h3>
+			<p>You write a list of exact instructions, and the robot carries them out one at a time. A Repeat block is a loop: One instruction that runs many times.</p>
+		</div>
+		<div class="learn__section">
+			<h3>The Ideas behind It</h3>
+			<ul>
+				<li><strong>Sequencing:</strong> Computers do exactly what you say, in exactly the order you say it.</li>
+				<li><strong>Loops:</strong> Repeating instructions keeps code short, readable, and easy to change.</li>
+				<li><strong>Debugging:</strong> When the robot crashes, you trace the failure to one step and fix it.</li>
+				<li><strong>Optimization:</strong> The shortest path and the fewest blocks are two different kinds of better. Engineers weigh both.</li>
+			</ul>
+		</div>
+		<div class="learn__section">
+			<h3>How This Puzzle Was Built</h3>
+			<ul>
+				<li><strong>HTML:</strong> The structure of the board, the blocks, and the buttons.</li>
+				<li><strong>CSS:</strong> The look and layout, with colors that stay readable at every Lights level.</li>
+				<li><strong>JavaScript:</strong> The blocks you stack, the robot&rsquo;s animation, and the scoring.</li>
+				<li><strong>Algorithms:</strong> A breadth-first search finds the shortest path on every level, and dynamic programming works out the fewest blocks, so the star targets are always exact.</li>
+			</ul>
+		</div>
+		<div class="learn__section">
+			<h3>Where You Would Learn This</h3>
+			<p>WDD 130 Web Fundamentals and WDD 131 Dynamic Web Fundamentals support the HTML, CSS, and JavaScript; CSE 110 and CSE 111 build the programming foundation; CSE 212 Programming with Data Structures and CSE 381 Algorithms &amp; Complexity connect to search and optimization.</p>
+		</div>
+		<div class="learn__section learn__section--human">
+			<p>The robot only follows the plan. You made the plan.</p>
+		</div>
+	</div>
+</dialog>
+
+<dialog class="learn" id="learn-robot-search" aria-labelledby="learn-robot-search-title">
+	<button class="learn__close" type="button" data-learn-close aria-label="Close">&times;</button>
+	<div class="learn__inner">
+		<div class="learn__head">
+			<div>
+				<p class="eyebrow">What You Just Saw</p>
+				<h2 id="learn-robot-search-title">Breadth-First Search</h2>
+			</div>
+		</div>
+		<div class="learn__section">
+			<h3>What the Computer Did</h3>
+			<p>It checked every square one move away, then every square two moves away, then three, spreading out like a ripple until it reached the goal. Because it always checks the closest squares first, the first path it finds is guaranteed to be the shortest.</p>
+		</div>
+		<div class="learn__section">
+			<h3>The Ideas behind It</h3>
+			<ul>
+				<li><strong>Graphs:</strong> The grid is a graph. Squares are nodes, and moves are the edges between them.</li>
+				<li><strong>Search Algorithms:</strong> The same idea powers map directions, network routing, and game AI.</li>
+				<li><strong>Complexity:</strong> Computer scientists measure how much work an algorithm does as the problem grows, so it stays fast at scale.</li>
+			</ul>
+		</div>
+		<div class="learn__section">
+			<h3>Where You Would Learn This</h3>
+			<p>CSE 212 Programming with Data Structures and CSE 381 Algorithms &amp; Complexity; CSE 351 Parallelism &amp; Concurrency helps you think about coordinating search work across concurrent branches.</p>
+		</div>
+		<div class="learn__section learn__section--human">
+			<p>The computer searched fast. A person decided what &ldquo;best&rdquo; means and wrote the search.</p>
+		</div>
+	</div>
+</dialog>
+
+<dialog class="learn" id="learn-robot-bidirectional" aria-labelledby="learn-robot-bidirectional-title">
+	<button class="learn__close" type="button" data-learn-close aria-label="Close">&times;</button>
+	<div class="learn__inner">
+		<div class="learn__head">
+			<div>
+				<p class="eyebrow">What You Just Saw</p>
+				<h2 id="learn-robot-bidirectional-title">Bidirectional Search</h2>
+			</div>
+		</div>
+		<div class="learn__section">
+			<h3>What the Computer Did</h3>
+			<p>It searched outward from the robot and the goal at the same time. When the two frontiers met, the computer had connected the two partial routes into a shortest path.</p>
+		</div>
+		<div class="learn__section">
+			<h3>The Ideas behind It</h3>
+			<ul>
+				<li><strong>Two frontiers:</strong> Each search checks the next layer from its own starting point.</li>
+				<li><strong>Less work:</strong> On larger maps, meeting in the middle can explore fewer squares than searching from one end.</li>
+				<li><strong>Concurrency:</strong> CSE 351 Parallelism &amp; Concurrency explores how independent work can be coordinated safely.</li>
+			</ul>
+		</div>
+		<div class="learn__section">
+			<h3>Where You Would Learn This</h3>
+			<p>CSE 381 Algorithms &amp; Complexity and CSE 351 Parallelism &amp; Concurrency.</p>
+		</div>
+		<div class="learn__section learn__section--human">
+			<p>Two search teams can cover more ground—but a person still decides when their answers are allowed to join.</p>
+		</div>
+	</div>
+</dialog>
+
+
+<footer class="site-footer">
+	<div class="container">
+		<div class="site-footer__top">
+			<div class="site-footer__brand">
+				<p class="site-footer__name">Computer Science & Software Engineering</p>
+				<p>We don&rsquo;t settle for the technology we inherit. We challenge it, improve it, and build what comes next.</p>
+			</div>
+			<div class="site-footer__cols">
+				<div>
+					<h2>Majors</h2>
+					<ul>
+						<li><a href="computer-science.html">Computer Science</a></li>
+						<li><a href="software-engineering.html">Software Engineering</a></li>
+						<li><a href="index.html#cs-or-se">CS or SE?</a></li>
+						<li><a href="software-engineering.html#already-a-student">Already a Student?</a></li>
+					</ul>
+				</div>
+				<div>
+					<h2>Explore</h2>
+					<ul>
+						<li><a href="projects.html">Student Work</a></li>
+						<li><a href="life.html">Life Here</a></li>
+						<li><a href="challenges.html">Challenges</a></li>
+						<li><a href="families.html">For Families</a></li>
+					</ul>
+				</div>
+				<div>
+					<h2>Next Steps</h2>
+					<ul>
+						<li><a href="https://www.byui.edu/admissions/" target="_blank" rel="noopener noreferrer">Apply to BYU-Idaho</a></li>
+						<li><a href="https://agenthub.byui.edu/guest" target="_blank" rel="noopener noreferrer">Ask BYU-Idaho AI</a></li>
+						<li><a href="https://www.byui.edu/computer-science-engineering/" target="_blank" rel="noopener noreferrer">CSE Department Website</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="site-footer__bottom">
+			<span><a href="https://www.byui.edu/" target="_blank" rel="noopener noreferrer">Brigham Young University-Idaho</a> &nbsp;&bull;&nbsp; <a href="https://www.byui.edu/computer-science-engineering/" target="_blank" rel="noopener noreferrer">Computer Science and Engineering Department</a></span>
+			<span><a href="https://github.com/byui-cse" target="_blank" rel="noopener noreferrer" class="footer-icon-link"><svg class="icon-github" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>BYU-Idaho CSE on GitHub</a> &nbsp;&bull;&nbsp; <a href="https://www.youtube.com/@byui-cse/videos" target="_blank" rel="noopener noreferrer" class="footer-icon-link"><span class="icon-youtube" aria-hidden="true"></span>YouTube</a></span>
+		</div>
+	</div>
+</footer>
+</body>
+</html>
+

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Software Engineering | BYU-Idaho</title>
+	<meta name="description" content="Software Engineering at BYU-Idaho: take an idea from a whiteboard sketch to an app real people use, then specialize in software design, full stack web, embedded systems, or quality assurance.">
+	<meta name="theme-color" content="#004c86">
+	<link rel="preload" href="fonts/source-sans-3-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="fonts/source-serif-4-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/path-toggle.js" defer></script>
+
+	<!-- Runs before first paint so the page opens at the visitor's saved Lights level. -->
+	<script src="js/lights-core.js"></script>
+	<script src="js/nav.js" defer></script>
+	<script src="js/lights-ui.js" defer></script>
+	<script src="js/media-slots.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+	<div class="site-header__inner container">
+		<a class="brand" href="index.html">
+			<span class="brand__name">BYU-Idaho</span>
+			<span class="brand__dept">Computer Science &amp; Software Engineering</span>
+		</a>
+
+		<div class="lights" data-lights-control>
+			<button class="lights__toggle" type="button" aria-expanded="false" aria-controls="lights-panel" data-lights-toggle>
+				<svg class="lights__bulb" viewBox="0 0 24 24" aria-hidden="true">
+					<g class="lights__rays" stroke-width="1.6" stroke-linecap="round">
+						<path d="M12 0.8v1.6M3.2 4.2l1.2 1.2M20.8 4.2l-1.2 1.2M0.8 12h1.6M21.6 12h1.6"/>
+					</g>
+					<path class="lights__glow" d="M12 4.5a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V18h5.2v-.7c0-.8.4-1.5 1-2A6 6 0 0 0 12 4.5z"/>
+					<path class="lights__glass" stroke-width="1.6" d="M12 4.5a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V18h5.2v-.7c0-.8.4-1.5 1-2A6 6 0 0 0 12 4.5zM9.6 20.5h4.8M10.4 22.8h3.2"/>
+				</svg>
+				<span class="lights__label">Lights</span>
+			</button>
+			<div class="lights__panel" id="lights-panel" data-lights-panel hidden>
+				<div class="lights__head">
+					<label for="lights-range">Page Brightness</label>
+					<output class="lights__value" for="lights-range" data-lights-value>100%</output>
+				</div>
+				<div class="lights__row">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 15.3A8.5 8.5 0 0 1 8.7 4a8.5 8.5 0 1 0 11.3 11.3z"/></svg>
+					<input class="lights__range" id="lights-range" type="range" min="1" max="100" step="1" value="100" data-lights-range>
+					<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 1.5v2.5M12 20v2.5M1.5 12H4M20 12h2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+				</div>
+				<button class="lights__learn" type="button" data-learn-open="learn-lights">How Does This Work?</button>
+			</div>
+		</div>
+
+		<nav class="site-nav" aria-label="Primary">
+			<button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+				<svg class="site-nav__icon site-nav__icon--menu" viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M3 6h18M3 12h18M3 18h18"/></svg>
+				<svg class="site-nav__icon site-nav__icon--close" viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="m5 5 14 14M19 5 5 19"/></svg>
+				<span class="site-nav__label">Menu</span>
+			</button>
+			<div class="site-nav__panel" id="primary-nav">
+				<ul class="site-nav__list">
+					<li><a class="site-nav__link" href="computer-science.html" data-nav="computer-science">Computer Science</a></li>
+					<li><a class="site-nav__link" href="software-engineering.html" data-nav="software-engineering">Software Engineering</a></li>
+					<li><a class="site-nav__link" href="projects.html" data-nav="projects">Student Work</a></li>
+					<li><a class="site-nav__link" href="life.html" data-nav="life">Life Here</a></li>
+					<li><a class="site-nav__link" href="families.html" data-nav="families">Families</a></li>
+				</ul>
+				<a class="button button--small" href="https://www.byui.edu/admissions/" target="_blank" rel="noopener noreferrer">Apply</a>
+			</div>
+		</nav>
+	</div>
+</header>
+
+<dialog class="learn" id="learn-lights" aria-labelledby="learn-lights-title">
+	<button class="learn__close" type="button" data-learn-close aria-label="Close">&times;</button>
+	<div class="learn__inner">
+		<div class="learn__head">
+			<div>
+				<p class="eyebrow">What You Just Learned</p>
+				<h2 id="learn-lights-title">One Number Repainted the Whole Page</h2>
+			</div>
+		</div>
+		<div class="learn__section">
+			<h3>What You Just Did</h3>
+			<p>When you moved the slider, a small program took your number, calculated a new set of colors, and swapped them into the page while you watched.</p>
+		</div>
+		<div class="learn__section">
+			<h3>The Idea behind It</h3>
+			<ul>
+				<li><strong>Variables and Events:</strong> The page listens for you to move the slider and stores your choice in a variable.</li>
+				<li><strong>Color Math:</strong> Every color is calculated so text stays readable at every level, from 1% to 100%.</li>
+				<li><strong>Saving a Preference:</strong> Your browser remembers your setting for the next visit.</li>
+				<li><strong>Accessibility:</strong> The program checks contrast so people with low vision can still read the page.</li>
+			</ul>
+		</div>
+		<div class="learn__section">
+			<h3>Where You Would Learn This</h3>
+			<p>CSE 110 Introduction to Programming, WDD 130 Web Fundamentals, and WDD 131 Dynamic Web Fundamentals, all in your first two semesters.</p>
+		</div>
+		<div class="learn__section learn__section--human">
+			<p>A computer can change a color. A person decides whether everyone can still read it.</p>
+		</div>
+	</div>
+</dialog>
+
+
+<main id="main">
+
+	<section class="hero hero--page" aria-labelledby="page-title">
+		<div class="container split split--wide-text">
+			<div>
+				<p class="eyebrow">Software Engineering (B.S.)</p>
+				<h1 id="page-title">Build Software People <em>Actually Use.</em></h1>
+				<p class="lede">Take an idea from a sketch on a whiteboard to an app real people open every day. Program it with your team, test it, launch it, and watch someone use it for the first time. That feeling never gets old.</p>
+				<div class="button-row">
+					<a class="button" href="#emphases">Pick Your Specialty <span class="arrow" aria-hidden="true">&rarr;</span></a>
+					<a class="button button--secondary" href="https://www.byui.edu/admissions/" target="_blank" rel="noopener noreferrer">Apply to BYU-Idaho</a>
+				</div>
+			</div>
+			<div class="slot" data-media-cycle="image">
+				<img class="slot__media is-active" src="images/se-team-laptops.jpg" alt="Students and an instructor work through a problem together on laptops" loading="lazy"><img class="slot__media" src="images/se-instructor-help.jpg" alt="An instructor helps a student at a laptop" loading="lazy">
+			</div>
+		</div>
+	</section>
+
+	<section class="section" aria-labelledby="you-title">
+		<div class="container split split--top">
+			<div>
+				<p class="eyebrow">Is This You?</p>
+				<h2 id="you-title">You Might Love Software Engineering If You</h2>
+				<p class="lede">You like making things, and you like it even more when people use them. That is software engineering in one sentence.</p>
+			</div>
+			<ul class="checklist lede">
+				<li>Have ever thought, &ldquo;Someone should make an app for that&rdquo;</li>
+				<li>Would rather build with friends than work alone</li>
+				<li>Want to know how the code inside a car or a smartwatch really works</li>
+				<li>Get annoyed when an app crashes and want to be the one who debugs it</li>
+				<li>Want to launch your career right after graduation</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="section section--surface" id="emphases" aria-labelledby="emphases-title">
+		<div class="container">
+			<div class="section-head section-head--row">
+				<p class="eyebrow">Pick Your Specialty</p>
+				<h2 id="emphases-title">Four Ways to Be a Software Engineer</h2>
+				<p class="lede">Everyone learns the core: Programming, teamwork, databases, and shipping a real product. Then you choose where to go deep.</p>
+			</div>
+			<div class="grid grid--2">
+				<article class="card">
+					<p class="eyebrow">Software Design</p>
+					<h3>Design Systems Built to Last</h3>
+					<p>The apps on your phone are millions of lines of code built by hundreds of engineers. Master object-oriented design, design patterns, and software architecture so it keeps growing without falling apart.</p>
+					<p class="meta">Courses include CSE 130, CSE 230, CSE 331 Design Patterns, CSE 430 Architectural Design, and a two-part senior project.</p>
+					<p class="meta"><strong>Leads To:</strong> Software engineer, software architect</p>
+				</article>
+				<article class="card">
+					<p class="eyebrow">Full Stack Web Development</p>
+					<h3>Build the Whole Web App</h3>
+					<p>Design the UI people see and click, then build the APIs, servers, and databases that power it. By the end, you can launch a complete web product yourself.</p>
+					<p class="meta">Courses include WDD 231 Web Frontend Development, CSE 340 Web Backend Development, WDD 331R Advanced CSS, WDD 360 Full Stack Foundations, and WDD 430.</p>
+					<p class="meta"><strong>Leads To:</strong> Web developer, front-end or back-end developer, full stack engineer</p>
+				</article>
+				<article class="card">
+					<p class="eyebrow">Embedded Systems</p>
+					<h3>Put Code inside Real Machines</h3>
+					<p>Cars, smartwatches, and medical devices all run on code someone had to write. Program microcontrollers in C, work with digital logic and computer architecture, and make real machines move, sense, and respond.</p>
+					<p class="meta">Courses include CSE 121C C Language, ECEN 240 Digital Systems, ECEN 260 Microprocessor-Based System Design, ECEN 324 Computer Architecture, and ECEN 361 Embedded Systems.</p>
+					<p class="meta"><strong>Leads To:</strong> Embedded systems developer, real-time software developer, firmware engineer</p>
+				</article>
+				<article class="card">
+					<p class="eyebrow">Quality Assurance</p>
+					<h3>Make Sure Nothing Breaks</h3>
+					<p>Be the reason an app works perfectly on launch day. Write automated tests, hunt down security vulnerabilities, run UX research with real users, and help lead the team that ships it.</p>
+					<p class="meta">Courses include CSE 270 Software Testing, CSE 372 Requirements Elicitation, CSE 453 Computer Security, CSE 471 UX Research, and BUS 309 Project Management.</p>
+					<p class="meta"><strong>Leads To:</strong> QA engineer, automation engineer, software test engineer</p>
+				</article>
+			</div>
+
+			<div class="activity mt-2xl" aria-labelledby="circuit-title">
+				<div class="activity__intro">
+					<p class="eyebrow">Try It</p>
+					<h3 id="circuit-title">Wire the Circuit</h3>
+					<p>Flip switches through logic gates to light a lamp, then build the circuit that adds numbers inside every chip. Same on and off signals every app runs on.</p>
+					<a class="button" href="challenges.html#game-circuit">Play Circuit Builder <span class="arrow" aria-hidden="true">&rarr;</span></a>
+				</div>
+				<a href="challenges.html#game-circuit" tabindex="-1" aria-hidden="true"><img class="challenge-card__art activity__art" src="images/challenge-circuit.svg" alt="" width="800" height="400" loading="lazy"></a>
+			</div>
+		</div>
+	</section>
+
+	<section class="section" id="path" aria-labelledby="path-title">
+	<div class="container">
+		<div class="section-head section-head--row">
+			<p class="eyebrow">Your Path</p>
+			<h2 id="path-title">What Four Years Can Look Like</h2>
+			<p class="lede">Pick your degree and see the core courses you will take. Your advisor helps you shape the rest.</p>
+		</div>
+		<div class="path-switcher" role="group" aria-label="Choose your specialty">
+			<span class="path-switcher__label">Choose Your Specialty:</span>
+			<button type="button" class="path-switcher__button" data-path-choice="cs" aria-pressed="true">Computer Science</button>
+			<button type="button" class="path-switcher__button" data-path-choice="se" aria-pressed="false">Software Engineering</button>
+		</div>
+
+		<div data-path-panel="cs">
+			<!-- Source: BYU-Idaho 2026-2027 Computer Science 8-semester plan, checked 2026-10-15. ECEN 106, WDD 130/131, DS 250, ITM 220, ITM 350, and MATH 119 are required (non-italic). -->
+			<ol class="path">
+				<li class="path__stage"><span class="path__when">Year 1</span><h3>Learn to Build</h3><ul>
+					<li><span class="code">CSE 110</span>Introduction to Programming</li>
+					<li><span class="code">CSE 111</span>Programming with Functions</li>
+					<li><span class="code">CSE 170</span>Technical Teamwork</li>
+					<li><span class="code">CSE 199R</span>Freshman Discovery Project</li>
+					<li><span class="code">ECEN 106</span>Computer Systems</li>
+					<li><span class="code">WDD 130 &middot; WDD 131</span>Web Fundamentals, Dynamic Web Fundamentals</li>
+					<li><span class="code">Electives</span>Room for a minor, more depth, or another passion</li>
+				</ul></li>
+				<li class="path__stage"><span class="path__when">Year 2</span><h3>Build the Foundation</h3><ul>
+					<li><span class="code">CSE 210</span>Programming with Classes</li>
+					<li><span class="code">CSE 212</span>Programming with Data Structures</li>
+					<li><span class="code">CSE 280 &middot; MATH 119</span>Discrete Mathematics, Calculus</li>
+					<li><span class="code">CSE 310</span>Applied Programming</li>
+					<li><span class="code">CSE 370</span>Software Engineering Principles</li>
+					<li><span class="code">DS 250</span>Data Science Programming</li>
+					<li><span class="code">ITM 220</span>SQL</li>
+					<li><span class="code">Electives</span>Room for a minor, more depth, or another passion</li>
+				</ul></li>
+				<li class="path__stage"><span class="path__when">Year 3</span><h3>Go Deep</h3><ul>
+					<li><span class="code">CSE 300</span>Professional Readiness</li>
+					<li><span class="code">CSE 351</span>Parallelism &amp; Concurrency</li>
+					<li><span class="code">CSE 381</span>Algorithms &amp; Complexity</li>
+					<li><span class="code">CSE 382</span>Patterns &amp; Data Structures</li>
+					<li><span class="code">CSE 399R</span>Product Development Project</li>
+					<li><span class="code">ITM 350</span>DevOps</li>
+					<li><span class="code">Electives</span>Room for a minor, more depth, or another passion</li>
+				</ul></li>
+				<li class="path__stage"><span class="path__when">Internship and Year 4</span><h3>Work and Specialize</h3><ul>
+					<li><span class="code">CSE 398</span>Internship, usually between semesters</li>
+					<li><span class="code">CSE 4xx</span>Two advanced topics you choose</li>
+					<li><span class="code">Electives</span>Room for a minor, more depth, or another passion</li>
+				</ul></li>
+			</ol>
+		</div>
+
+		<div data-path-panel="se" hidden>
+			<!-- Source: BYU-Idaho 2026-2027 Software Engineering 8-semester plans (all four emphases), checked 2026-10-15. Required for every SE emphasis: ECEN 106, WDD 130/131, ITM 220, ITM 350. No DS, MATH, or CSE 381 requirement. -->
+			<ol class="path">
+				<li class="path__stage"><span class="path__when">Year 1</span><h3>Learn to Build</h3><ul>
+					<li><span class="code">CSE 110</span>Introduction to Programming</li>
+					<li><span class="code">CSE 111</span>Programming with Functions</li>
+					<li><span class="code">CSE 170</span>Technical Teamwork</li>
+					<li><span class="code">CSE 199R</span>Freshman Discovery Project</li>
+					<li><span class="code">ECEN 106</span>Computer Systems</li>
+					<li><span class="code">WDD 130 &middot; WDD 131</span>Web Fundamentals, Dynamic Web Fundamentals</li>
+					<li><span class="code">Electives</span>Room for a minor, more depth, or another passion</li>
+				</ul></li>
+				<li class="path__stage"><span class="path__when">Year 2</span><h3>Build the Foundation</h3><ul>
+					<li><span class="code">CSE 210</span>Programming with Classes</li>
+					<li><span class="code">CSE 212</span>Programming with Data Structures</li>
+					<li><span class="code">CSE 310</span>Applied Programming</li>
+					<li><span class="code">ITM 220</span>SQL</li>
+					<li><span class="code">Emphasis</span>Start the courses for your emphasis</li>
+				</ul></li>
+				<li class="path__stage"><span class="path__when">Year 3</span><h3>Ship with Your Team</h3><ul>
+					<li><span class="code">CSE 300</span>Professional Readiness</li>
+					<li><span class="code">CSE 370</span>Software Engineering Principles</li>
+					<li><span class="code">CSE 399R</span>Product Development Project</li>
+					<li><span class="code">ITM 350</span>DevOps</li>
+					<li><span class="code">Emphasis</span>Go deeper in the area you chose</li>
+				</ul>
+					<div class="path__options"><h4>Choose an Emphasis</h4><ul class="path__module-list">
+						<li>Software Design</li>
+						<li>Full Stack Web Development</li>
+						<li>Embedded Systems</li>
+						<li>Quality Assurance</li>
+					</ul></div>
+				</li>
+				<li class="path__stage"><span class="path__when">Internship and Year 4</span><h3>Show What You Can Do</h3><ul>
+					<li><span class="code">CSE 398</span>Internship, usually between semesters</li>
+					<li><span class="code">CSE 499</span>Senior Project</li>
+					<li><span class="code">Electives</span>Room for a minor, more depth, or another passion</li>
+				</ul></li>
+			</ol>
+		</div>
+		<p class="source-note">This is one suggested sequence. <a href="https://www.byui.edu/computer-science-engineering/student-resources/suggested-course-plans-and-flowcharts" target="_blank" rel="noopener noreferrer">Review other course-plan options and flowcharts</a>, then tailor a specific plan with an advisor today.</p>
+	</div>
+</section>
+
+
+	<section class="section section--tint" aria-labelledby="learn-title">
+		<div class="container split">
+			<div>
+				<p class="eyebrow">How You Will Learn</p>
+				<h2 id="learn-title">Engineers Own the Result.</h2>
+			</div>
+			<div class="prose">
+				<p>Software engineering is a team sport. You will interview users to gather requirements, sketch the UI/UX, plan the architecture, write clean code your teammates can review, automate the tests, and deploy on time. You practice all of it in team courses and a product project long before your internship.</p>
+				<p>Along the way, you put modern tools to work, including AI for gathering requirements, automating tests, and tuning complex systems. You also learn the engineering standards that keep people in charge of what gets built and responsible for how it works.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="section" aria-labelledby="leads-title">
+		<div class="container">
+			<div class="section-head section-head--row">
+				<p class="eyebrow">Where It Can Lead</p>
+				<h2 id="leads-title">Careers in Software</h2>
+				<p class="lede">Every industry runs on software, from hospitals to banks to car makers, and every one of them needs engineers.</p>
+			</div>
+			<div class="split split--top">
+				<dl class="careers">
+					<div class="careers__row">
+						<dt>Builds the apps and services people use every day</dt>
+						<dd>Software Engineer</dd>
+					</div>
+					<div class="careers__row">
+						<dt>Builds both the parts of a website you see and the systems behind it</dt>
+						<dd>Full Stack Engineer</dd>
+					</div>
+					<div class="careers__row">
+						<dt>Writes the code inside cars, medical equipment, and smart devices</dt>
+						<dd>Firmware Engineer</dd>
+					</div>
+					<div class="careers__row">
+						<dt>Builds automatic tests that catch problems before customers do</dt>
+						<dd>Automation Engineer</dd>
+					</div>
+					<div class="careers__row">
+						<dt>Decides how the big pieces of a system fit together</dt>
+						<dd>Software Architect</dd>
+					</div>
+				</dl>
+				<div>
+					<h3>Average Salary after Graduation</h3>
+					<dl class="stats">
+						<div class="stat"><dt>Starting</dt><dd>$74,476</dd></div>
+						<div class="stat"><dt>5 years</dt><dd>$113,931</dd></div>
+					</dl>
+					<p class="source-note">
+						Reported average earnings for BYU-Idaho Software Engineering graduates, as published on the
+						<a href="https://www.byui.edu/majors/software-engineering-bs" target="_blank" rel="noopener noreferrer">Software Engineering major page</a>. <!-- Source checked October 7, 2026; review during the next content refresh. -->
+						Starting salary means earnings in the first year after graduation. Earnings vary and are not a guarantee.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+		<section class="section section--tint" id="already-a-student" aria-labelledby="already-title">
+		<div class="container">
+			<div class="section-head section-head--row">
+				<p class="eyebrow">Already a Student?</p>
+				<h2 id="already-title">Switching, Transferring, or Coming Back? Start Here.</h2>
+				<p class="lede">Plenty of great engineers found computing a little later. Here is how to jump in without losing momentum.</p>
+			</div>
+
+			<ol class="steps">
+				<li>
+					<h3>Try the First Course</h3>
+					<p>Take CSE 110 Introduction to Programming. It is the first course in both majors and the fastest way to find out if you love this. Already programming? <a href="https://www.byui.edu/computer-science-engineering/student-resources/study-help#testout" target="_blank" rel="noopener noreferrer">Test out with the LUC placement test</a> and start in CSE 111.</p>
+				</li>
+				<li>
+					<h3>Talk with an Advisor</h3>
+					<p>An advisor can show how your current credits fit and map out your semesters. <a href="https://www.byui.edu/advising/" target="_blank" rel="noopener noreferrer">Meet with Academic Advising</a>.</p>
+				</li>
+				<li>
+					<h3>Transferring Credit?</h3>
+					<p>See how courses from another school may count with the <a href="https://www.byui.edu/transfer-evaluation/course-transfer-tool" target="_blank" rel="noopener noreferrer">course transfer tool</a>. Official evaluation decides what applies.</p>
+				</li>
+				<li>
+					<h3>Coming Back after Time Away?</h3>
+					<p>Whether you served a mission, worked, or cared for family, there is a path back. <a href="https://www.byui.edu/admissions/apply/former-student" target="_blank" rel="noopener noreferrer">Former student admission</a>.</p>
+				</li>
+			</ol>
+
+			<p class="source-note">Current students can also use the <a href="https://agenthub.byui.edu/hub" target="_blank" rel="noopener noreferrer">Student Hub</a> for tools built for BYU-Idaho students. Questions about computing? Contact the CSE Advising Office at <a href="mailto:STEMadvising@byui.edu">STEMadvising@byui.edu</a> or <a href="tel:+12084969880">208-496-9880</a>.</p>
+		</div>
+	</section>
+
+
+	<section class="section section--brand" aria-labelledby="next-title">
+		<div class="container split">
+			<div>
+				<p class="eyebrow">Your Next Step</p>
+				<h2 id="next-title">Ready to Build Something People Use?</h2>
+				<p class="lede">Apply to BYU-Idaho and write your first program in your very first semester.</p>
+			</div>
+			<div class="stack">
+				<div class="button-row">
+					<a class="button" href="https://www.byui.edu/admissions/" target="_blank" rel="noopener noreferrer">Apply to BYU-Idaho <span class="arrow" aria-hidden="true">&rarr;</span></a>
+					<a class="button button--secondary" href="computer-science.html">Compare Computer Science</a>
+				</div>
+				<p class="meta">Questions? <a href="https://agenthub.byui.edu/guest" target="_blank" rel="noopener noreferrer">Ask BYU-Idaho AI</a> about majors, admissions, and campus life.</p>
+			</div>
+		</div>
+	</section>
+
+</main>
+
+<footer class="site-footer">
+	<div class="container">
+		<div class="site-footer__top">
+			<div class="site-footer__brand">
+				<p class="site-footer__name">Computer Science & Software Engineering</p>
+				<p>We don&rsquo;t settle for the technology we inherit. We challenge it, improve it, and build what comes next.</p>
+			</div>
+			<div class="site-footer__cols">
+				<div>
+					<h2>Majors</h2>
+					<ul>
+						<li><a href="computer-science.html">Computer Science</a></li>
+						<li><a href="software-engineering.html">Software Engineering</a></li>
+						<li><a href="index.html#cs-or-se">CS or SE?</a></li>
+						<li><a href="software-engineering.html#already-a-student">Already a Student?</a></li>
+					</ul>
+				</div>
+				<div>
+					<h2>Explore</h2>
+					<ul>
+						<li><a href="projects.html">Student Work</a></li>
+						<li><a href="life.html">Life Here</a></li>
+						<li><a href="challenges.html">Challenges</a></li>
+						<li><a href="families.html">For Families</a></li>
+					</ul>
+				</div>
+				<div>
+					<h2>Next Steps</h2>
+					<ul>
+						<li><a href="https://www.byui.edu/admissions/" target="_blank" rel="noopener noreferrer">Apply to BYU-Idaho</a></li>
+						<li><a href="https://agenthub.byui.edu/guest" target="_blank" rel="noopener noreferrer">Ask BYU-Idaho AI</a></li>
+						<li><a href="https://www.byui.edu/computer-science-engineering/" target="_blank" rel="noopener noreferrer">CSE Department Website</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="site-footer__bottom">
+			<span><a href="https://www.byui.edu/" target="_blank" rel="noopener noreferrer">Brigham Young University-Idaho</a> &nbsp;&bull;&nbsp; <a href="https://www.byui.edu/computer-science-engineering/" target="_blank" rel="noopener noreferrer">Computer Science and Engineering Department</a></span>
+			<span><a href="https://github.com/byui-cse" target="_blank" rel="noopener noreferrer" class="footer-icon-link"><svg class="icon-github" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>BYU-Idaho CSE on GitHub</a> &nbsp;&bull;&nbsp; <a href="https://www.youtube.com/@byui-cse/videos" target="_blank" rel="noopener noreferrer" class="footer-icon-link"><span class="icon-youtube" aria-hidden="true"></span>YouTube</a></span>
+		</div>
+	</div>
+</footer>
+</body>
+</html>
+

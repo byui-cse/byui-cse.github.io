@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Life Here | BYU-Idaho Computer Science &amp; Software Engineering</title>
+	<meta name="description" content="Hackathons, a cybersecurity team, a race car team, and friends who build. Find your people in the BYU-Idaho Computing Society, then explore Rexburg, Yellowstone, and the Tetons.">
+	<meta name="theme-color" content="#004c86">
+	<link rel="preload" href="fonts/source-sans-3-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="fonts/source-serif-4-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="css/main.css">
+	
+	<!-- Runs before first paint so the page opens at the visitor's saved Lights level. -->
+	<script src="js/lights-core.js"></script>
+	<script src="js/nav.js" defer></script>
+	<script src="js/lights-ui.js" defer></script>
+	<script src="js/media-slots.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+	<div class="site-header__inner container">
+		<a class="brand" href="index.html">
+			<span class="brand__name">BYU-Idaho</span>
+			<span class="brand__dept">Computer Science &amp; Software Engineering</span>
+		</a>
+
+		<div class="lights" data-lights-control>
+			<button class="lights__toggle" type="button" aria-expanded="false" aria-controls="lights-panel" data-lights-toggle>
+				<svg class="lights__bulb" viewBox="0 0 24 24" aria-hidden="true">
+					<g class="lights__rays" stroke-width="1.6" stroke-linecap="round">
+						<path d="M12 0.8v1.6M3.2 4.2l1.2 1.2M20.8 4.2l-1.2 1.2M0.8 12h1.6M21.6 12h1.6"/>
+					</g>
+					<path class="lights__glow" d="M12 4.5a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V18h5.2v-.7c0-.8.4-1.5 1-2A6 6 0 0 0 12 4.5z"/>
+					<path class="lights__glass" stroke-width="1.6" d="M12 4.5a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V18h5.2v-.7c0-.8.4-1.5 1-2A6 6 0 0 0 12 4.5zM9.6 20.5h4.8M10.4 22.8h3.2"/>
+				</svg>
+				<span class="lights__label">Lights</span>
+			</button>
+			<div class="lights__panel" id="lights-panel" data-lights-panel hidden>
+				<div class="lights__head">
+					<label for="lights-range">Page Brightness</label>
+					<output class="lights__value" for="lights-range" data-lights-value>100%</output>
+				</div>
+				<div class="lights__row">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 15.3A8.5 8.5 0 0 1 8.7 4a8.5 8.5 0 1 0 11.3 11.3z"/></svg>
+					<input class="lights__range" id="lights-range" type="range" min="1" max="100" step="1" value="100" data-lights-range>
+					<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 1.5v2.5M12 20v2.5M1.5 12H4M20 12h2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+				</div>
+				<button class="lights__learn" type="button" data-learn-open="learn-lights">How Does This Work?</button>
+			</div>
+		</div>
+
+		<nav class="site-nav" aria-label="Primary">
+			<button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+				<svg class="site-nav__icon site-nav__icon--menu" viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M3 6h18M3 12h18M3 18h18"/></svg>
+				<svg class="site-nav__icon site-nav__icon--close" viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="m5 5 14 14M19 5 5 19"/></svg>
+				<span class="site-nav__label">Menu</span>
+			</button>
+			<div class="site-nav__panel" id="primary-nav">
+				<ul class="site-nav__list">
+					<li><a class="site-nav__link" href="computer-science.html" data-nav="computer-science">Computer Science</a></li>
+					<li><a class="site-nav__link" href="software-engineering.html" data-nav="software-engineering">Software Engineering</a></li>
+					<li><a class="site-nav__link" href="projects.html" data-nav="projects">Student Work</a></li>
+					<li><a class="site-nav__link" href="life.html" data-nav="life">Life Here</a></li>
+					<li><a class="site-nav__link" href="families.html" data-nav="families">Families</a></li>
+				</ul>
+				<a class="button button--small" href="https://www.byui.edu/admissions/" target="_blank" rel="noopener noreferrer">Apply</a>
+			</div>
+		</nav>
+	</div>
+</header>
+
+<dialog class="learn" id="learn-lights" aria-labelledby="learn-lights-title">
+	<button class="learn__close" type="button" data-learn-close aria-label="Close">&times;</button>
+	<div class="learn__inner">
+		<div class="learn__head">
+			<div>
+				<p class="eyebrow">What You Just Learned</p>
+				<h2 id="learn-lights-title">One Number Repainted the Whole Page</h2>
+			</div>
+		</div>
+		<div class="learn__section">
+			<h3>What You Just Did</h3>
+			<p>When you moved the slider, a small program took your number, calculated a new set of colors, and swapped them into the page while you watched.</p>
+		</div>
+		<div class="learn__section">
+			<h3>The Idea behind It</h3>
+			<ul>
+				<li><strong>Variables and Events:</strong> The page listens for you to move the slider and stores your choice in a variable.</li>
+				<li><strong>Color Math:</strong> Every color is calculated so text stays readable at every level, from 1% to 100%.</li>
+				<li><strong>Saving a Preference:</strong> Your browser remembers your setting for the next visit.</li>
+				<li><strong>Accessibility:</strong> The program checks contrast so people with low vision can still read the page.</li>
+			</ul>
+		</div>
+		<div class="learn__section">
+			<h3>Where You Would Learn This</h3>
+			<p>CSE 110 Introduction to Programming, WDD 130 Web Fundamentals, and WDD 131 Dynamic Web Fundamentals, all in your first two semesters.</p>
+		</div>
+		<div class="learn__section learn__section--human">
+			<p>A computer can change a color. A person decides whether everyone can still read it.</p>
+		</div>
+	</div>
+</dialog>
+
+
+<main id="main">
+
+	<section class="hero hero--page" aria-labelledby="page-title">
+		<div class="container split split--wide-text">
+			<div>
+				<p class="eyebrow">Life Here</p>
+				<h1 id="page-title">Find Your People. <em>Build Together.</em></h1>
+				<p class="lede">Hackathons. Cybersecurity. A hybrid electric race car. Late nights building something with friends that actually works. Some of the best parts of college happen outside the classroom.</p>
+				<div class="button-row">
+					<a class="button" href="#groups-title">Find Your Crew <span class="arrow" aria-hidden="true">&rarr;</span></a>
+					<a class="button button--secondary" href="https://www.byui.edu/campus-tours/" target="_blank" rel="noopener noreferrer">Plan a Visit</a>
+				</div>
+			</div>
+			<div class="slot" data-media-cycle="video">
+				<iframe class="slot__media is-active" src="https://www.youtube-nocookie.com/embed/WNSm5ODrRo8?autoplay=1&amp;mute=1&amp;start=30&amp;controls=0&amp;disablekb=1&amp;playsinline=1&amp;rel=0&amp;iv_load_policy=3&amp;cc_load_policy=0&amp;enablejsapi=1" title="CSE Fall 2025 Opening Social" tabindex="-1" loading="lazy" allow="autoplay; encrypted-media"></iframe><iframe class="slot__media" src="https://www.youtube-nocookie.com/embed/LNw7vEkjmIg?mute=1&amp;start=30&amp;controls=0&amp;disablekb=1&amp;playsinline=1&amp;rel=0&amp;iv_load_policy=3&amp;cc_load_policy=0&amp;enablejsapi=1" title="Winter 2025 Student Game Expo" tabindex="-1" loading="lazy" allow="autoplay; encrypted-media"></iframe>
+			</div>
+		</div>
+	</section>
+
+	<section class="section" aria-labelledby="wed-title">
+		<div class="container split">
+			<div>
+				<p class="eyebrow">The Computing Society</p>
+				<h2 id="wed-title">Wednesday Nights Are for Building</h2>
+			</div>
+			<div class="prose">
+				<p class="lede">Every Wednesday at 5:00 PM, the STC quad (rooms 375, 385, 394, and 398) becomes a hangout space for builders. Grab some food, open your laptop, and hack on whatever you are into: Your own project, a class assignment, or something brand new with friends who love cybersecurity, cloud apps, data, drones, even a hybrid electric race car.</p>
+				<p>No experience needed and no tryouts. Show up your first semester and walk away with friends, projects for your portfolio, and probably a new favorite hobby.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="section section--surface" aria-labelledby="groups-title">
+		<div class="container">
+			<div class="section-head section-head--row">
+				<p class="eyebrow">Societies and Teams</p>
+				<h2 id="groups-title">Thirteen Ways to Get Involved</h2>
+				<p class="lede">Try one. Try five. Every group is part of the Computing Society, and every one of them is building something.</p>
+			</div>
+			<div class="grid grid--sm society-grid">
+				<article class="society"><h3>Video Game Design</h3><p>Build playable worlds with game engines, original art, and a team that gets it.</p></article>
+				<article class="society"><h3>Society of Cybersecurity</h3><p>Learn ethical hacking, sharpen your defenses, and think like an attacker.</p></article>
+				<article class="society"><h3>Drones (UAS)</h3><p>Build, program, and fly drones. Then see what they can do.</p></article>
+				<article class="society"><h3>AI Society</h3><p>Teach machines to spot patterns, make predictions, and surprise you.</p></article>
+      <article class="society"><h3>Hackathon</h3><p>Dream up the challenge, help run the event, or team up and compete.</p></article>
+				<article class="society"><h3>Web Society</h3><p>Turn ideas into live websites from the first sketch to the final launch.</p></article>
+				<article class="society"><h3>Data Science</h3><p>Find the story in messy data with Python.</p></article>
+				<article class="society"><h3>Cloud Solutions</h3><p>Put real apps in the cloud with AWS, Azure, and Google Cloud.</p></article>
+				<article class="society"><h3>Linux and Open Source</h3><p>Get comfortable at the command line and build with open source.</p></article>
+				<article class="society"><h3>Formula Hybrid Electric</h3><p>Design, build, and race a hybrid electric car at national competition.</p></article>
+				<article class="society"><h3>Amateur Radio</h3><p>Earn your license and talk across town or around the world.</p></article>
+				<article class="society"><h3>IEEE Student Branch</h3><p>Meet engineers, grow your network, and see where technology can take you.</p></article>
+				<article class="society"><h3>Society of Women Engineers</h3><p>Find mentors, make friends, and grow your place in engineering and computing.</p></article>
+			</div>
+			<p class="source-note">Groups listed on the <a href="https://www.byui.edu/computer-science-engineering/student-resources/societies" target="_blank" rel="noopener noreferrer">Computer Science and Engineering societies page</a>. Can&rsquo;t wait for Wednesday? Warm up with a <a href="challenges.html">challenge puzzle</a>. <!-- Source checked October 7, 2026; review during the next content refresh. --></p>
+
+		</div>
+	</section>
+
+	<section class="section" aria-labelledby="place-title">
+		<div class="container">
+			<div class="section-head section-head--row">
+				<p class="eyebrow">Rexburg and Beyond</p>
+				<h2 id="place-title">A Small Town with Big Backyards</h2>
+				<p class="lede">Rexburg is a friendly college town in eastern Idaho, and two of the most famous national parks in America are practically next door.</p>
+			</div>
+			<div class="grid grid--3">
+				<div class="stack">
+					<div class="slot" data-media-cycle="image"><img class="slot__media is-active" src="images/tetons-taggart-lake.jpg" alt="The Grand Teton peaks above Taggart Lake" loading="lazy"><img class="slot__media" src="images/yellowstone-old-faithful.jpg" alt="Old Faithful erupting in Yellowstone National Park" loading="lazy"></div>
+					<h3>National Parks Next Door</h3>
+					<p>Yellowstone and Grand Teton are nearby national parks for weekend adventures. Saturday road trip, anyone?</p>
+				</div>
+				<div class="stack">
+					<div class="slot" data-media-cycle="image"><img class="slot__media is-active" src="images/kelly-canyon-skiers.jpg" alt="Two friends skiing at Kelly Canyon" loading="lazy"><img class="slot__media" src="images/st-anthony-dunes.jpg" alt="The St. Anthony Sand Dunes in evening light" loading="lazy"></div>
+					<h3>Every Season Outside</h3>
+					<p>Explore the St. Anthony Sand Dunes, ski or ride at Kelly Canyon, visit Grand Teton and Yellowstone national parks, or spend a day at Yellowstone Safari Park. Nearby trails, rivers, lakes, hot springs, and forests give every season its own adventure.</p>
+				</div>
+				<div class="stack">
+					<div class="slot" data-media-cycle="image"><img class="slot__media is-active" src="images/campus-sunset-banners.jpg" alt="BYU-Idaho banners along a campus walkway at sunset" loading="lazy"><img class="slot__media" src="images/campus-sunset-building.jpg" alt="A BYU-Idaho campus building at sunset" loading="lazy"></div>
+					<h3>A Calendar That Fits Your Life</h3>
+					<p>Three 14-week semesters each year give you room for classes, an internship, or a well-earned break. <a href="https://www.byui.edu/academic-calendar/" target="_blank" rel="noopener noreferrer">See the academic calendar</a>.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section section--tint" aria-labelledby="faith-title">
+		<div class="container split split--top">
+			<div>
+				<p class="eyebrow">Faith and Campus Life</p>
+				<h2 id="faith-title">Grow as a Whole Person</h2>
+				<p class="lede">BYU-Idaho is owned and guided by The Church of Jesus Christ of Latter-day Saints, and here faith and learning grow side by side.</p>
+				<p>Hear inspiring speakers at <a href="https://www.byui.edu/speeches/devotionals" target="_blank" rel="noopener noreferrer">weekly devotionals</a>, serve in campus congregations, and live by an <a href="https://www.byui.edu/student-honor-office/ces-honor-code" target="_blank" rel="noopener noreferrer">Honor Code</a> that keeps campus respectful and welcoming.</p>
+			</div>
+			<figure class="quote quote--compact">
+				<blockquote>
+					<p>&hellip;when ye are in the service of your fellow beings ye are only in the service of your God.</p>
+				</blockquote>
+				<figcaption>
+					<span class="quote__name"><a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/2?lang=eng&amp;id=p17#p17" target="_blank" rel="noopener noreferrer">Mosiah 2:17</a></span>
+					<span class="quote__source">The Book of Mormon</span>
+				</figcaption>
+			</figure>
+		</div>
+	</section>
+
+	<section class="section section--brand" aria-labelledby="next-title">
+		<div class="container split">
+			<div>
+				<p class="eyebrow">Your Next Step</p>
+				<h2 id="next-title">Come See It for Yourself</h2>
+				<p class="lede">Tour campus, drop in on a Wednesday night, and picture yourself here.</p>
+			</div>
+			<div class="button-row">
+				<a class="button" href="https://www.byui.edu/campus-tours/" target="_blank" rel="noopener noreferrer">Plan a Campus Visit <span class="arrow" aria-hidden="true">&rarr;</span></a>
+				<a class="button button--secondary" href="https://www.byui.edu/admissions/" target="_blank" rel="noopener noreferrer">Apply to BYU-Idaho</a>
+			</div>
+		</div>
+	</section>
+
+</main>
+
+<footer class="site-footer">
+	<div class="container">
+		<div class="site-footer__top">
+			<div class="site-footer__brand">
+				<p class="site-footer__name">Computer Science & Software Engineering</p>
+				<p>We don&rsquo;t settle for the technology we inherit. We challenge it, improve it, and build what comes next.</p>
+			</div>
+			<div class="site-footer__cols">
+				<div>
+					<h2>Majors</h2>
+					<ul>
+						<li><a href="computer-science.html">Computer Science</a></li>
+						<li><a href="software-engineering.html">Software Engineering</a></li>
+						<li><a href="index.html#cs-or-se">CS or SE?</a></li>
+						<li><a href="software-engineering.html#already-a-student">Already a Student?</a></li>
+					</ul>
+				</div>
+				<div>
+					<h2>Explore</h2>
+					<ul>
+						<li><a href="projects.html">Student Work</a></li>
+						<li><a href="life.html">Life Here</a></li>
+						<li><a href="challenges.html">Challenges</a></li>
+						<li><a href="families.html">For Families</a></li>
+					</ul>
+				</div>
+				<div>
+					<h2>Next Steps</h2>
+					<ul>
+						<li><a href="https://www.byui.edu/admissions/" target="_blank" rel="noopener noreferrer">Apply to BYU-Idaho</a></li>
+						<li><a href="https://agenthub.byui.edu/guest" target="_blank" rel="noopener noreferrer">Ask BYU-Idaho AI</a></li>
+						<li><a href="https://www.byui.edu/computer-science-engineering/" target="_blank" rel="noopener noreferrer">CSE Department Website</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="site-footer__bottom">
+			<span><a href="https://www.byui.edu/" target="_blank" rel="noopener noreferrer">Brigham Young University-Idaho</a> &nbsp;&bull;&nbsp; <a href="https://www.byui.edu/computer-science-engineering/" target="_blank" rel="noopener noreferrer">Computer Science and Engineering Department</a></span>
+			<span><a href="https://github.com/byui-cse" target="_blank" rel="noopener noreferrer" class="footer-icon-link"><svg class="icon-github" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>BYU-Idaho CSE on GitHub</a> &nbsp;&bull;&nbsp; <a href="https://www.youtube.com/@byui-cse/videos" target="_blank" rel="noopener noreferrer" class="footer-icon-link"><span class="icon-youtube" aria-hidden="true"></span>YouTube</a></span>
+		</div>
+	</div>
+</footer>
+</body>
+</html>
+
