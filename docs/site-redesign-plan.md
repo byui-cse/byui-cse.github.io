@@ -54,7 +54,7 @@ The current site's problem was never the number of pages. It was that each page 
 | **Computer Science** (`computer-science.html`) | Half of Programs, Outcomes detail | Students drawn to puzzles, math, how things work | Explore the major / apply | Robot puzzle "watch the computer solve it" |
 | **Software Engineering** (`software-engineering.html`) | Half of Programs, Outcomes detail | Students drawn to building apps and products | Explore the major / apply | Breadboard circuit (hardware meets software) |
 | **Student Work** (`projects.html`) | Student work | Everyone (proof) | Watch a demo | None (the projects are the show) |
-| **Life Here** (`life.html`) | New | Prospective students | Picture yourself here / visit | Cipher dial (near Cybersecurity Society) |
+| **Life Here** (`life.html`) | New | Prospective students | Picture yourself here / visit | Societies, Rexburg, and outdoor highlights |
 | **For Families** (`families.html`) | Parents, the "learning integrity" half of AI questions | Parents | Visit / review cost and outcomes | None (calm, informative) |
 | **Challenges** (`challenges.html`) | New | Students who want more | Try harder puzzles, then explore a major | Harder robot, circuit, and security levels |
 
@@ -158,7 +158,7 @@ Add a short **"Which sounds more like you?"** picker (4 to 6 either/or questions
 - **Friends and mentors:** teams, faculty who know your name, peer tutoring (verify).
 - **Rexburg and the outdoors:** Yellowstone, Jackson Hole, and the seasons. Verify every distance and claim.
 - **Faith and campus life:** devotionals, wards, service, and the Honor Code environment, shown through real student moments.
-- Interactions: Crack the code (near Cybersecurity) and Flip the bits.
+- Interactions: Flip the bits; keep the cipher dial on the Challenges page where it supports the learning flow.
 
 ### Student Work
 
@@ -282,6 +282,42 @@ Final pairing is chosen by testing both at the new sizes. Fonts are self-hosted 
 - Real photography and video loops of students building, presenting, flying drones, playing their own games. No stock, no AI generated people.
 - Subtle motion: hover lift on project cards, a gentle fade in on scroll, all disabled under reduced motion.
 
+### Image source map for the planned slots
+
+Use these sources when the corresponding image slot is ready. The links are production references for the site team, not a request to add source lists to the public pages. Prefer BYU-Idaho/CSE-owned media for people and student work; use government or Creative Commons media for landscapes and attractions.
+
+| Planned slot | Use first | Backup or outside source |
+|---|---|---|
+| Home hero — students building together | [BYU-Idaho Photography](https://photo.byui.edu/) or an approved CSE photo/video | [CSE YouTube videos](https://www.youtube.com/@byui-cse/videos) for a captioned silent loop or demo clip |
+| Home — Wednesday night in the STC quad | [CSE Student Societies](https://www.byui.edu/computer-science-engineering/student-resources/societies) context plus BYU-Idaho Photography | A new CSE photo of the Wednesday gathering in STC 398 |
+| Computer Science — student at a whiteboard | [BYU-Idaho Student Portraits](https://photo.byui.edu/studentportraits) or an approved CSE classroom photo | New CSE photography showing a real CS student explaining an idea |
+| Software Engineering — team planning or demo | [BYU-Idaho Portfolio Photos](https://photo.byui.edu/p668117155) or an approved CSE team-project photo | New CSE photography of a real software team |
+| Student Work — featured video | [BYU-Idaho CSE YouTube](https://www.youtube.com/@byui-cse/videos) | Use only a real, captioned student demo selected by the department |
+| Student Work — security, web, hardware, mobile, data, and senior cards | Approved student screenshots, photos, repositories, or demos from [BYU-Idaho CSE GitHub](https://github.com/byui-cse) | Do not substitute stock or generic technology images; project and student approval is still required |
+| Life Here — Wednesday-night student photo | BYU-Idaho Photography plus CSE society/event photography | New photo from the STC 398 gathering |
+| Life Here — Yellowstone or Grand Teton | [Yellowstone NPS public-domain collection](https://www.nps.gov/features/yell/slidefile/) or the [Grand Teton NPS photo gallery](https://www.nps.gov/grte/learn/photosmultimedia/photogallery.htm) | [Grand Teton CC BY 2.0 image](https://commons.wikimedia.org/wiki/File:Grand_Teton_National_Park.jpg) |
+| Life Here — skiing, hiking, or sand dunes | [Kelly Canyon Resort](https://kellycanyonresort.com/stay/), [BLM St. Anthony Sand Dunes](https://www.blm.gov/visit/st-anthony-sand-dunes), or BYU-Idaho Photography | [St. Anthony Sand Dunes NASA public-domain image](https://commons.wikimedia.org/wiki/File:St._Anthony_Sand_Dunes,_Idaho.jpg) |
+| Life Here — sunny campus life | [BYU-Idaho Photography](https://photo.byui.edu/) or [BYU-Idaho Portfolio Photos](https://photo.byui.edu/p668117155) | [BYU-Idaho Stadium CC BY 2.0 image](https://commons.wikimedia.org/wiki/File:BYU-Idaho_Stadium_-_Brigham_Young_University_-_Rexburg.jpg) |
+| For Families — student with family or presenting a project | BYU-Idaho Photography, Student Portraits, or approved CSE project photography | New department photography with appropriate student/family approval |
+
+### Official CSE video candidates
+
+These are recommendations from the official [BYU-I CSE YouTube playlists](https://www.youtube.com/@byui-cse/playlists), reviewed October 15, 2026. Use the videos as linked or select short excerpts only after confirming captions, framing, and current student permissions. Shorts and short teasers work best as supporting cards or social-style previews, not as the main hero video.
+
+| Planned slot | Recommended video | Why it fits |
+|---|---|---|
+| Student Work — featured video | [Meet Archon: The Student-Built Platform for Cloud Architecture &amp; Security](https://www.youtube.com/watch?v=g405dVdwI7U) | Strongest all-around student project story; shows a substantial product and connects to cloud and security. |
+| Student Work — featured or project card | [Web Dev Made Easy](https://www.youtube.com/watch?v=nVwturhrsY0) | Clear Software Engineering/web-development connection; short enough to preview. |
+| Student Work — security project card | [Cerberus Online Safety](https://www.youtube.com/watch?v=ep4e9JZ_i9Y) | Direct fit for the security project category and the Society of Cybersecurity story. |
+| Student Work — games/project card | [Winter 2025 Student Game Expo](https://www.youtube.com/watch?v=LNw7vEkjmIg) | Shows students making something visual and fun; useful for the Video Game Design society and project showcase. |
+| Life Here — community video | [CSE Fall 2025 Opening Social](https://www.youtube.com/watch?v=WNSm5ODrRo8) | Best fit for showing people, belonging, and the Computing Society outside class. |
+| Life Here — event card | [Hackathon Fall 2025](https://www.youtube.com/watch?v=D9AfIfSCKIs) | Shows collaborative energy and a real student event without needing much explanation. |
+| Life Here — cybersecurity card | [Cybersecurity Q&amp;A with Professor Bryan Plass](https://www.youtube.com/watch?v=Sr_EryyGAKs) | Short supporting clip for cybersecurity; useful if captions and framing are strong. |
+| Home or social-style supporting clip | [CS Student Rates JavaScript vs Ghost Pepper Pain](https://www.youtube.com/watch?v=eO4_TDg4rMI) | A memorable short teaser that makes computing feel human; use sparingly, not as the main academic proof. |
+| Student support / Already a Student | [How Can You Make Your CSE Resume Better](https://www.youtube.com/watch?v=AZUMYqt6efE) | Short, practical career content; better for current-student resources than recruitment hero space. |
+
+For the local attractions copy, [Yellowstone Safari Park](https://yellowstonesafaripark.com/) is also an approved source for a local-attraction image, and [Kelly Canyon Resort](https://kellycanyonresort.com/stay/) is the source for resort-specific imagery. Keep those images limited to the relevant attraction card or “things to do” section.
+
 ---
 
 ## 9. Interactive moments ("try it, then learn it")
@@ -334,7 +370,7 @@ Optional fifth: **"See the code"**, a link to the readable source for that inter
 | 1 | **Lights** (page brightness) | Header, every page | Dim the page from 100% down to 1% | Variables, events, color math and contrast (accessibility), saving a preference | CSE 110, WDD 130/131 |
 | 2 | **Robot path puzzle** (signature activity) | Home (level 1), Computer Science page ("watch the computer solve it"), Challenges (harder levels) | Guide a robot across a small grid with obstacles to the goal by stacking command blocks: `forward`, `turn left`, `turn right`, and `repeat (n)`. Press Run and watch it go. | Sequencing, loops, debugging, and efficiency (fewest steps and fewest blocks) | CSE 110, CSE 111; CSE 212 and CSE 381 for the "computer solves it" view |
 | 3 | **Breadboard circuit** (hardware) | Software Engineering page (or Home, "What you could build"), Challenges | Connect jumper wires battery → switch → resistor → LED to light it. Challenges adds AND/OR gates and a simple adder. | Circuits, binary on/off, logic gates, where hardware meets software | ECEN 106 Computer Systems, Discrete Math; Drone/UAS, Amateur Radio, Formula Hybrid societies |
-| 4 | **Cipher dial** (quick security) | Life Here, next to the Society of Cybersecurity; Challenges | A short scrambled message and a dial. Turn the dial until the message reads clearly (usually under 20 seconds). The Learn panel shows why a computer cracks this in a blink and what modern encryption does instead. Challenges adds harder puzzles. | Encryption, keys, thinking like a defender | Society of Cybersecurity, security coursework (confirm course) |
+| 4 | **Cipher dial** (quick security) | Challenges | A short scrambled message and a dial. Turn the dial until the message reads clearly (usually under 20 seconds). The Learn panel shows why a computer cracks this in a blink and what modern encryption does instead. | Encryption, keys, thinking like a defender | Society of Cybersecurity, security coursework (confirm course) |
 | 5 | **Flip the bits** (optional, small) | Computer Science page or Challenges | Flip 8 switches to make a number or letter | Binary, how computers store text | ECEN 106, CSE 110 |
 
 **Robot path puzzle details.** This one carries the site's message best: you plan, you decide, you make it efficient.
@@ -365,7 +401,7 @@ Optional fifth: **"See the code"**, a link to the readable source for that inter
 4. **First interactions.** Lights and the Robot path puzzle (level 1), each with its Learn panel.
 5. **Fill verified content.** Salaries, courses, careers, societies, quotes (after primary source check), scripture.
 6. **Real media.** Swap in approved photos, video, and projects as they arrive. Placeholders hidden from public view, listed in a tracking doc instead.
-7. **More interactions.** Breadboard, cipher dial, flip the bits, and the Challenges page levels.
+7. **More interactions.** Breadboard, flip the bits, the cipher dial on Challenges, and the Challenges page levels.
 8. **Review.** Accessibility pass (contrast at every Lights level, keyboard, captions), mobile pass at 360px, `pnpm run build` and `pnpm run verify`, then department and University Communications review.
 
 ---

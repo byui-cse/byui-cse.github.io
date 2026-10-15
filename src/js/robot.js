@@ -349,7 +349,75 @@
             }
         }
 
-        return { minMoves: goalDepth, parBlocks, bestSequence, searchOrder: cellOrder };
+        return { minMoves: goalDepth, parBlocks, bestSequence, searchOrder: cellOrder, bidirectionalOrder: buildBidirectionalOrder(level) };
+    };
+
+    /** Explore from the start and goal at the same time until the frontiers meet. */
+    const buildBidirectionalOrder = (level) => {
+        const start = `${level.start.x},${level.start.y}`;
+        const goal = `${level.goal.x},${level.goal.y}`;
+        const frontSeen = new Set([start]);
+        const backSeen = new Set([goal]);
+        const order = [];
+        const shown = new Set();
+        let front = [start];
+        let back = [goal];
+
+        const add = (cell) => {
+            if (!shown.has(cell)) {
+                shown.add(cell);
+                order.push(cell);
+            }
+        };
+
+        add(start);
+        add(goal);
+
+        const neighbors = (cell) => {
+            const [x, y] = cell.split(",").map(Number);
+
+            return DIRS
+                .map(([dx, dy]) => `${x + dx},${y + dy}`)
+                .filter((next) => {
+                    const [nx, ny] = next.split(",").map(Number);
+                    return isOpen(level, nx, ny);
+                });
+        };
+
+        while (front.length && back.length) {
+            const nextFront = [];
+
+            for (const cell of front) {
+                for (const next of neighbors(cell)) {
+                    if (!frontSeen.has(next)) {
+                        frontSeen.add(next);
+                        nextFront.push(next);
+                        add(next);
+                    }
+
+                    if (backSeen.has(next)) return order;
+                }
+            }
+
+            front = nextFront;
+            const nextBack = [];
+
+            for (const cell of back) {
+                for (const next of neighbors(cell)) {
+                    if (!backSeen.has(next)) {
+                        backSeen.add(next);
+                        nextBack.push(next);
+                        add(next);
+                    }
+
+                    if (frontSeen.has(next)) return order;
+                }
+            }
+
+            back = nextBack;
+        }
+
+        return order;
     };
 
     /* ---------- Program model ---------- */
@@ -565,8 +633,16 @@
         let solverBtn = null;
 
         if (withSolver) {
-            solverBtn = el("button", { type: "button", class: "button button--secondary button--small robot__solver" }, "Watch the Computer Solve It");
-            controls.append(solverBtn);
+            solverBtn = el("button", { type: "button", class: "button robot__solver robot__solver--prominent" }, "Watch the Computer Solve It");
+            const intro = root.closest(".activity")?.querySelector(".activity__intro");
+            const solverCallout = el("div", { class: "robot__solver-callout" });
+            solverCallout.append(el("p", {}, "Want to see the algorithm find the route?"), solverBtn);
+
+            if (intro) {
+                intro.append(solverCallout);
+            } else {
+                controls.append(solverBtn);
+            }
         }
 
         const status = el("p", { class: "robot__status", role: "status", "aria-live": "polite" });
@@ -1187,7 +1263,7 @@
 
         /* ---------- "Watch the Computer Solve It" ---------- */
 
-        const runSolver = async () => {
+        const runSolver = async (mode = "breadth") => {
             if (busy) {
                 return;
             }
@@ -1199,9 +1275,14 @@
 
             const wait = reducedMotion ? 15 : 70;
 
-            say("Searching: Checking every square one step away, then two, then three…");
+            const bidirectional = mode === "bidirectional";
+            const searchOrder = bidirectional ? level.bidirectionalOrder : level.searchOrder;
 
-            for (const cell of level.searchOrder) {
+            say(bidirectional
+                ? "Searching from both ends until the two frontiers meet…"
+                : "Searching: Checking every square one step away, then two, then three…");
+
+            for (const cell of searchOrder) {
                 const [x, y] = cell.split(",").map(Number);
 
                 layerSearch.append(svg("rect", { x: x * 10 + 1.6, y: y * 10 + 1.6, width: 6.8, height: 6.8, rx: 1.2, class: "robot__searched" }));
@@ -1227,15 +1308,21 @@
             robot.classList.add("is-home");
             busy = false;
             render();
-            say(`The computer checked ${level.searchOrder.length} squares and found a ${level.minMoves}-move path.`);
-            showResult(null, "Breadth-First Search", `The computer checked ${level.searchOrder.length} squares, closest first, so the first path it found to the goal is guaranteed to be the shortest. Now try to match it with ${level.parBlocks} blocks.`);
+            const method = bidirectional ? "Bidirectional Search" : "Breadth-First Search";
+            say(`The computer checked ${searchOrder.length} squares and found a ${level.minMoves}-move path.`);
+            showResult(null, method, bidirectional
+                ? `The computer searched outward from the start and the goal until the two frontiers met. That can reduce the work on larger maps while still finding a shortest path. Now try to match it with ${level.parBlocks} blocks.`
+                : `The computer checked each frontier layer, closest first, so the first path it found to the goal is guaranteed to be the shortest. Now try to match it with ${level.parBlocks} blocks.`);
 
             if (learnId) {
-                const learnSearch = el("button", { type: "button", class: "button button--small", "data-learn-open": `${learnId}-search` }, "What You Just Saw");
+                const learnSearch = el("button", { type: "button", class: "button button--small", "data-learn-open": `${learnId}-${bidirectional ? "bidirectional" : "search"}` }, "What You Just Saw");
+                const alternate = el("button", { type: "button", class: "button button--secondary button--small" }, bidirectional ? "Prefer Breadth-First Search" : "Try Bidirectional Search");
+
+                alternate.addEventListener("click", () => runSolver(bidirectional ? "breadth" : "bidirectional"));
 
                 const actions = el("div", { class: "robot__result-actions" });
 
-                actions.append(learnSearch);
+                actions.append(learnSearch, alternate);
                 result.append(actions);
             }
         };

@@ -31,7 +31,7 @@
 
 	h1 {
 		margin-block-end: var(--space-lg);
-		max-width: 14ch;
+		max-width: 20ch;
 
 		em {
 			font-style: normal;
@@ -44,7 +44,7 @@
 	}
 
 	.lede {
-		max-width: 38rem;
+		max-width: 48rem;
 		margin-block-end: var(--space-xl);
 		color: var(--color-on-band);
 	}
@@ -54,7 +54,7 @@
 	padding-block: clamp(2.5rem, 1.75rem + 4vw, 5.5rem);
 
 	h1 {
-		max-width: 18ch;
+		max-width: 24ch;
 		font-size: clamp(2.5rem, 1.6rem + 4vw, 4.75rem);
 	}
 }

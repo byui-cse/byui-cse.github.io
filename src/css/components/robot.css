@@ -436,6 +436,27 @@
 	flex: 1 1 8rem;
 }
 
+.robot__solver-callout {
+	display: grid;
+	gap: var(--space-xs);
+	margin-block-start: var(--space-md);
+	padding: var(--space-md) var(--space-lg);
+	border-radius: var(--radius-md);
+	background: var(--color-tint);
+	border-inline-start: 4px solid var(--color-link);
+
+	p {
+		margin: 0;
+		font-size: var(--text-sm);
+		font-weight: var(--weight-semibold);
+	}
+}
+
+.robot__solver--prominent {
+	justify-self: start;
+	min-height: 2.75rem;
+}
+
 .robot__status {
 	min-height: 1.5em;
 	margin: var(--space-sm) 0 0;

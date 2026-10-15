@@ -71,7 +71,8 @@ const initLearnDialogs = () => {
                 returnFocus.set(dialog, opener);
             }
 
-            document.querySelectorAll("dialog.learn[open]").forEach((other) => other.close());
+            /* Close other Learn panels, but keep an open game underneath. */
+            document.querySelectorAll("dialog.learn[open]:not(.learn--game)").forEach((other) => other.close());
             dialog.showModal();
             return;
         }
@@ -82,7 +83,7 @@ const initLearnDialogs = () => {
         }
 
         /* A click on the backdrop lands on the <dialog> element itself. */
-        if (event.target instanceof HTMLDialogElement && event.target.classList.contains("learn")) {
+        if (event.target instanceof HTMLDialogElement && event.target.classList.contains("learn") && !event.target.classList.contains("learn--game")) {
             event.target.close();
         }
     });

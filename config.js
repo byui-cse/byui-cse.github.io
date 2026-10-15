@@ -30,11 +30,6 @@ export default {
         }
     ],
 
-    /**
-     * Live site address. Used only by `pnpm run review` to build links in
-     * SITE-REVIEW.md. The site itself never uses it (all site paths are relative).
-     */
-    publicUrl: "https://byui-cse.github.io/_website_/",
 
     dev: {
         host: "localhost",

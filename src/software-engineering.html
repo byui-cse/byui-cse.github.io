@@ -1,6 +1,7 @@
 <include src="header.html"
 	title="Software Engineering | BYU-Idaho"
 	description="Software Engineering at BYU-Idaho: take an idea from a whiteboard sketch to an app real people use, then specialize in software design, full stack web, embedded systems, or quality assurance.">
+	<script src="js/path-toggle.js" defer></script>
 </include>
 
 <main id="main">
@@ -16,8 +17,8 @@
 					<a class="button button--secondary" href="https://www.byui.edu/admissions/" target="_blank" rel="noopener noreferrer">Apply to BYU-Idaho</a>
 				</div>
 			</div>
-			<div class="slot">
-				<p class="slot__note" id="review-e458a2"><strong>Photo Needed</strong>A Software Engineering team planning or demoing a product together.</p>
+			<div class="slot" data-media-cycle="image">
+				<img class="slot__media is-active" src="images/se-team-laptops.jpg" alt="Students and an instructor work through a problem together on laptops" loading="lazy"><img class="slot__media" src="images/se-instructor-help.jpg" alt="An instructor helps a student at a laptop" loading="lazy">
 			</div>
 		</div>
 	</section>
@@ -30,11 +31,11 @@
 				<p class="lede">You like making things, and you like it even more when people use them. That is software engineering in one sentence.</p>
 			</div>
 			<ul class="checklist lede">
-				<li>have ever thought, &ldquo;Someone should make an app for that&rdquo;</li>
-				<li>would rather build with friends than work alone</li>
-				<li>want to know how the code inside a car or a smartwatch really works</li>
-				<li>get annoyed when an app crashes and want to be the one who debugs it</li>
-				<li>want to launch your career right after graduation</li>
+				<li>Have ever thought, &ldquo;Someone should make an app for that&rdquo;</li>
+				<li>Would rather build with friends than work alone</li>
+				<li>Want to know how the code inside a car or a smartwatch really works</li>
+				<li>Get annoyed when an app crashes and want to be the one who debugs it</li>
+				<li>Want to launch your career right after graduation</li>
 			</ul>
 		</div>
 	</section>
@@ -52,7 +53,7 @@
 					<h3>Design Systems Built to Last</h3>
 					<p>The apps on your phone are millions of lines of code built by hundreds of engineers. Master object-oriented design, design patterns, and software architecture so it keeps growing without falling apart.</p>
 					<p class="meta">Courses include CSE 130, CSE 230, CSE 331 Design Patterns, CSE 430 Architectural Design, and a two-part senior project.</p>
-					<p class="meta"><strong>Leads To:</strong> Software developer, software engineer, software architect</p>
+					<p class="meta"><strong>Leads To:</strong> Software engineer, software architect</p>
 				</article>
 				<article class="card">
 					<p class="eyebrow">Full Stack Web Development</p>
@@ -79,72 +80,17 @@
 
 			<div class="activity mt-2xl" aria-labelledby="circuit-title">
 				<div class="activity__intro">
-					<span class="activity__badge">Interactive Activity: Coming Soon</span>
+					<p class="eyebrow">Try It</p>
 					<h3 id="circuit-title">Wire the Circuit</h3>
-					<p>Connect a few wires to light an LED, then see how those same on and off signals become the ones and zeros every app runs on.</p>
+					<p>Flip switches through logic gates to light a lamp, then build the circuit that adds numbers inside every chip. Same on and off signals every app runs on.</p>
+					<a class="button" href="challenges.html#game-circuit">Play Circuit Builder <span class="arrow" aria-hidden="true">&rarr;</span></a>
 				</div>
-				<div class="slot activity__stage activity__stage--dots">
-					<p class="slot__note" id="review-285956"><strong>Reserved Space</strong>Breadboard circuit activity (plan section 9.4)</p>
-				</div>
+				<a href="challenges.html#game-circuit" tabindex="-1" aria-hidden="true"><img class="challenge-card__art activity__art" src="images/challenge-circuit.svg" alt="" width="800" height="400" loading="lazy"></a>
 			</div>
 		</div>
 	</section>
 
-	<section class="section" id="path" aria-labelledby="path-title">
-		<div class="container">
-			<div class="section-head section-head--row">
-				<p class="eyebrow">Your Path</p>
-				<h2 id="path-title">What Four Years Can Look Like</h2>
-				<p class="lede">Year one is shared with Computer Science, so you can start before you choose. Your specialty kicks in from year two.</p>
-			</div>
-			<ol class="path">
-				<li class="path__stage">
-					<span class="path__when">Year 1</span>
-					<h3>Learn to Build</h3>
-					<ul>
-						<li><span class="code">CSE 110</span>Introduction to Programming</li>
-						<li><span class="code">ECEN 106</span>Computer Systems</li>
-						<li><span class="code">WDD 130 &middot; WDD 131</span>Web Fundamentals, Dynamic Web Fundamentals</li>
-						<li><span class="code">CSE 111</span>Programming with Functions</li>
-						<li><span class="code">CSE 170</span>Technical Teamwork</li>
-						<li><span class="code">CSE 199R</span>Freshman Discovery Project</li>
-					</ul>
-				</li>
-				<li class="path__stage">
-					<span class="path__when">Year 2</span>
-					<h3>Build the Foundation</h3>
-					<ul>
-						<li><span class="code">CSE 210</span>Programming with Classes</li>
-						<li><span class="code">CSE 212</span>Programming with Data Structures</li>
-						<li><span class="code">ITM 220</span>SQL</li>
-						<li><span class="code">CSE 310</span>Applied Programming</li>
-						<li><span class="code">Specialty</span>Your first design, web, embedded, or testing courses</li>
-					</ul>
-				</li>
-				<li class="path__stage">
-					<span class="path__when">Year 3</span>
-					<h3>Ship with Your Team</h3>
-					<ul>
-						<li><span class="code">CSE 370</span>Software Engineering Principles</li>
-						<li><span class="code">ITM 350</span>DevOps</li>
-						<li><span class="code">CSE 300</span>Professional Readiness</li>
-						<li><span class="code">CSE 399R</span>Product Development Project</li>
-						<li><span class="code">Specialty</span>Deeper courses in your focus</li>
-					</ul>
-				</li>
-				<li class="path__stage">
-					<span class="path__when">Internship and Year 4</span>
-					<h3>Show What You Can Do</h3>
-					<ul>
-						<li><span class="code">CSE 398</span>Internship, usually between semesters</li>
-						<li><span class="code">CSE 499</span>Senior Project</li>
-						<li><span class="code">Electives</span>Room for more depth or another passion</li>
-					</ul>
-				</li>
-			</ol>
-			<p class="source-note">Suggested sequences from the <a href="https://brightspotcdn.byui.edu/2c/7c/75f2e41b4ca981ae7b176ee4ab89/2026-2027-plan-se-combined.pdf" target="_blank" rel="noopener noreferrer">2026&ndash;2027 Software Engineering plans</a>, which also include general education and religion courses. Each specialty orders courses a little differently, so build your plan with an advisor.</p>
-		</div>
-	</section>
+	<include src="four-year-path.html"></include>
 
 	<section class="section section--tint" aria-labelledby="learn-title">
 		<div class="container split">
@@ -174,7 +120,7 @@
 					</div>
 					<div class="careers__row">
 						<dt>Builds both the parts of a website you see and the systems behind it</dt>
-						<dd>Full Stack Web Developer</dd>
+						<dd>Full Stack Engineer</dd>
 					</div>
 					<div class="careers__row">
 						<dt>Writes the code inside cars, medical equipment, and smart devices</dt>
@@ -192,14 +138,13 @@
 				<div>
 					<h3>Average Salary after Graduation</h3>
 					<dl class="stats">
-						<div class="stat"><dt>1 year</dt><dd>$74,476</dd></div>
+						<div class="stat"><dt>Starting</dt><dd>$74,476</dd></div>
 						<div class="stat"><dt>5 years</dt><dd>$113,931</dd></div>
 					</dl>
 					<p class="source-note">
 						Reported average earnings for BYU-Idaho Software Engineering graduates, as published on the
-						<a href="https://www.byui.edu/majors/software-engineering-bs" target="_blank" rel="noopener noreferrer">Software Engineering major page</a> (accessed October 7, 2026).
-						<mark data-verify="Add PSEO data year, population, and 10-year figure if available" id="review-5e3651">Data year and population: To be confirmed.</mark>
-						Earnings vary and are not a guarantee.
+						<a href="https://www.byui.edu/majors/software-engineering-bs" target="_blank" rel="noopener noreferrer">Software Engineering major page</a>. <!-- Source checked October 7, 2026; review during the next content refresh. -->
+						Starting salary means earnings in the first year after graduation. Earnings vary and are not a guarantee.
 					</p>
 				</div>
 			</div>

@@ -1,7 +1,7 @@
 <include src="header.html"
 	title="Computer Science | BYU-Idaho"
 	description="Computer Science at BYU-Idaho: learn how computers really work, design algorithms that scale, and solve hard problems from the ground up.">
-	<script src="js/robot.js" defer></script>
+	<script src="js/path-toggle.js" defer></script>
 </include>
 
 <main id="main">
@@ -17,8 +17,8 @@
 					<a class="button button--secondary" href="https://www.byui.edu/admissions/" target="_blank" rel="noopener noreferrer">Apply to BYU-Idaho</a>
 				</div>
 			</div>
-			<div class="slot">
-				<p class="slot__note" id="review-8a1ce4"><strong>Photo Needed</strong>A Computer Science student explaining an idea at a whiteboard or working with a teammate.</p>
+			<div class="slot" data-media-cycle="image">
+				<img class="slot__media is-active" src="images/cs-whiteboard.jpg" alt="A student explains an idea at a whiteboard while an instructor listens" loading="lazy"><img class="slot__media" src="images/cs-laptop-talk.jpg" alt="An instructor and a student talk through code on a laptop" loading="lazy">
 			</div>
 		</div>
 	</section>
@@ -31,11 +31,11 @@
 				<p class="lede">You do not need to be a genius or a lifelong coder. You need curiosity and the grit to stay with a hard problem until it finally clicks. That moment is addictive.</p>
 			</div>
 			<ul class="checklist lede">
-				<li>enjoy puzzles, logic, and figuring out why something works</li>
-				<li>want to understand what is happening underneath your apps</li>
-				<li>wonder how search engines, maps, and smart systems actually think</li>
-				<li>love making things faster, smarter, or more efficient</li>
-				<li>might want to go to graduate school or do research someday</li>
+				<li>Enjoy puzzles, logic, and figuring out why something works</li>
+				<li>Want to understand what is happening underneath your apps</li>
+				<li>Wonder how search engines, maps, and smart systems actually think</li>
+				<li>Love making things faster, smarter, or more efficient</li>
+				<li>Might want to go to graduate school or do research someday</li>
 			</ul>
 		</div>
 	</section>
@@ -61,7 +61,7 @@
 				<article class="card">
 					<h3>Data and Machine Learning</h3>
 					<p>Wrangle real data with Python and SQL, find the patterns hiding in it, and build, train, and evaluate machine learning models.</p>
-					<p class="meta">DS 250 Data Science Programming, <mark data-verify="Confirm course code for Machine Learning" id="review-dcad36">Machine Learning</mark></p>
+					<p class="meta">DS 250 Data Science Programming, CSE 450 Machine Learning and Data Mining</p>
 				</article>
 				<article class="card">
 					<h3>Smart Data Structures</h3>
@@ -80,80 +80,19 @@
 				</article>
 			</div>
 
-			<div class="activity activity--game mt-2xl" aria-labelledby="solve-title">
+			<div class="activity mt-2xl" aria-labelledby="solve-title">
 				<div class="activity__intro">
-					<span class="activity__badge activity__badge--live">Try It</span>
+					<p class="eyebrow">Try It</p>
 					<h3 id="solve-title">Beat the Computer</h3>
-					<p>Guide the robot through the maze yourself, then press <strong>Watch the Computer Solve It</strong> to see a search algorithm find the shortest path square by square. It is the same idea you will master in Algorithms &amp; Complexity.</p>
-					<div class="activity__learn">
-						<p class="activity__learn-title">Skills You Are Practicing</p>
-						<ul class="tag-list"><li>Search Algorithms</li><li>Graphs</li><li>Loops</li><li>Optimization</li></ul>
-						<p>This puzzle runs on HTML, CSS, JavaScript, and a search algorithm that finds the best possible answer. You can learn to build tools like it.</p>
-						<button class="activity__learn-open" type="button" data-learn-open="learn-robot">How to Build This &rarr;</button>
-					</div>
+					<p>Guide a robot through a maze, then watch a search algorithm find the shortest path square by square. It is the same idea you will master in CSE 381 Algorithms &amp; Complexity.</p>
+					<a class="button" href="challenges.html#game-robot">Play Robot Path Puzzles <span class="arrow" aria-hidden="true">&rarr;</span></a>
 				</div>
-				<div class="robot" data-robot="cs" data-robot-learn="learn-robot" data-robot-solver><p class="robot__noscript">Turn on JavaScript to play the robot puzzle.</p></div>
+				<a href="challenges.html#game-robot" tabindex="-1" aria-hidden="true"><img class="challenge-card__art activity__art" src="images/challenge-robot.svg" alt="" width="800" height="400" loading="lazy"></a>
 			</div>
 		</div>
 	</section>
 
-	<section class="section" id="path" aria-labelledby="path-title">
-		<div class="container">
-			<div class="section-head section-head--row">
-				<p class="eyebrow">Your Path</p>
-				<h2 id="path-title">What Four Years Can Look Like</h2>
-				<p class="lede">Program in your first semester. Join a team in your second. Finish with an internship and advanced topics you choose.</p>
-			</div>
-			<ol class="path">
-				<li class="path__stage">
-					<span class="path__when">Year 1</span>
-					<h3>Learn to Build</h3>
-					<ul>
-						<li><span class="code">CSE 110</span>Introduction to Programming</li>
-						<li><span class="code">ECEN 106</span>Computer Systems</li>
-						<li><span class="code">WDD 130 &middot; WDD 131</span>Web Fundamentals, Dynamic Web Fundamentals</li>
-						<li><span class="code">CSE 111</span>Programming with Functions</li>
-						<li><span class="code">CSE 170</span>Technical Teamwork</li>
-						<li><span class="code">CSE 199R</span>Freshman Discovery Project</li>
-					</ul>
-				</li>
-				<li class="path__stage">
-					<span class="path__when">Year 2</span>
-					<h3>Build the Foundation</h3>
-					<ul>
-						<li><span class="code">CSE 210</span>Programming with Classes</li>
-						<li><span class="code">CSE 212</span>Programming with Data Structures</li>
-						<li><span class="code">DS 250</span>Data Science Programming</li>
-						<li><span class="code">ITM 220</span>SQL</li>
-						<li><span class="code">MATH 119 &middot; CSE 280</span>Calculus, Discrete Math</li>
-						<li><span class="code">CSE 310 &middot; CSE 370</span>Applied Programming, Software Engineering Principles</li>
-					</ul>
-				</li>
-				<li class="path__stage">
-					<span class="path__when">Year 3</span>
-					<h3>Go Deep</h3>
-					<ul>
-						<li><span class="code">CSE 381</span>Algorithms &amp; Complexity</li>
-						<li><span class="code">CSE 351</span>Parallelism &amp; Concurrency</li>
-						<li><span class="code">CSE 382</span>Patterns &amp; Data Structures</li>
-						<li><span class="code">ITM 350</span>DevOps</li>
-						<li><span class="code">CSE 300</span>Professional Readiness</li>
-						<li><span class="code">CSE 399R</span>Product Development Project</li>
-					</ul>
-				</li>
-				<li class="path__stage">
-					<span class="path__when">Internship and Year 4</span>
-					<h3>Work and Specialize</h3>
-					<ul>
-						<li><span class="code">CSE 398</span>Internship, usually between semesters</li>
-						<li><span class="code">CSE 4xx</span>Two advanced topics you choose</li>
-						<li><span class="code">Electives</span>Room for a minor, more depth, or another passion</li>
-					</ul>
-				</li>
-			</ol>
-			<p class="source-note">Suggested sequence from the <a href="https://brightspotcdn.byui.edu/e6/f7/e7a6f1f941fa9efa008091527d1a/2026-2027-plan-cs.pdf" target="_blank" rel="noopener noreferrer">2026&ndash;2027 Computer Science plan</a>, which also includes general education and religion courses. Your plan may differ, so build yours with an advisor.</p>
-		</div>
-	</section>
+	<include src="four-year-path.html"></include>
 
 	<section class="section section--tint" aria-labelledby="learn-title">
 		<div class="container split">
@@ -179,7 +118,7 @@
 				<dl class="careers">
 					<div class="careers__row">
 						<dt>Builds the software and apps people rely on</dt>
-						<dd>Software Developer</dd>
+						<dd>Software Engineer</dd>
 					</div>
 					<div class="careers__row">
 						<dt>Designs large systems so they stay fast and reliable</dt>
@@ -201,15 +140,14 @@
 				<div>
 					<h3>Average Salary after Graduation</h3>
 					<dl class="stats">
-						<div class="stat"><dt>1 year</dt><dd>$79,787</dd></div>
+						<div class="stat"><dt>Starting</dt><dd>$79,787</dd></div>
 						<div class="stat"><dt>5 years</dt><dd>$112,227</dd></div>
 						<div class="stat"><dt>10 years</dt><dd>$138,529</dd></div>
 					</dl>
 					<p class="source-note">
 						Reported average earnings for BYU-Idaho Computer Science graduates, from federal Post-Secondary Employment Outcomes (PSEO) data as published on the
-						<a href="https://www.byui.edu/majors/computer-science-bs" target="_blank" rel="noopener noreferrer">Computer Science major page</a> (accessed October 7, 2026).
-						<mark data-verify="Add PSEO data year and who is included" id="review-42c8cc">Data year and population: To be confirmed.</mark>
-						Earnings vary and are not a guarantee.
+						<a href="https://www.byui.edu/majors/computer-science-bs" target="_blank" rel="noopener noreferrer">Computer Science major page</a>. <!-- Source checked October 7, 2026; review during the next content refresh. -->
+						Starting salary means earnings in the first year after graduation. Earnings vary and are not a guarantee.
 					</p>
 				</div>
 			</div>
@@ -237,6 +175,5 @@
 
 </main>
 
-<include src="learn-robot.html"></include>
 
 <include src="footer.html"></include>

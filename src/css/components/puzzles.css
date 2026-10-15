@@ -1,0 +1,308 @@
+/**
+ * Challenge puzzles (js/puzzles.js): Flip the Bits, Circuit Builder, Security Puzzles.
+ * Level chips and the result box reuse the robot game's styles.
+ */
+.puzzle {
+	font-family: var(--font-ui);
+}
+
+.puzzle__goal {
+	margin-block: 0 var(--space-md);
+	font-family: var(--font-ui);
+	font-size: var(--text-h4);
+	font-weight: var(--weight-bold);
+}
+
+.puzzle__stage {
+	display: grid;
+	gap: var(--space-md);
+	padding: clamp(1rem, 0.75rem + 1vw, 1.75rem);
+	border: 1px solid var(--color-line);
+	border-radius: var(--radius-lg);
+	background: var(--color-tint);
+
+	p {
+		margin: 0;
+	}
+}
+
+.puzzle__readout,
+.puzzle__label,
+.puzzle__layout {
+	font-family: var(--font-ui);
+	font-weight: var(--weight-semibold);
+}
+
+.puzzle__readout {
+	font-size: var(--text-h4);
+}
+
+.puzzle__label {
+	color: var(--color-muted);
+	font-size: var(--text-min);
+}
+
+/* Shared toggle look for bits, switches, gates, and choices. */
+.puzzle__bit,
+.puzzle__switch,
+.puzzle__gate,
+.puzzle__choice {
+	min-height: var(--touch-min);
+	border: 2px solid var(--color-border);
+	border-radius: var(--radius-md);
+	background: var(--color-surface);
+	color: var(--color-ink);
+	font-family: var(--font-ui);
+	font-weight: var(--weight-bold);
+	cursor: pointer;
+
+	&[aria-pressed="true"] {
+		border-color: var(--color-brand);
+		background: var(--color-brand);
+		color: var(--color-on-brand);
+	}
+
+	&:focus-visible {
+		outline: 3px solid var(--color-focus);
+		outline-offset: 2px;
+	}
+}
+
+/* ---------- Flip the Bits ---------- */
+
+.puzzle__bits {
+	display: grid;
+	grid-template-columns: repeat(8, minmax(0, 1fr));
+	gap: var(--space-xs);
+}
+
+.puzzle__bit {
+	display: grid;
+	gap: var(--space-2xs);
+	padding: var(--space-sm) 0;
+}
+
+.puzzle__bit-value {
+	font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem);
+	font-weight: var(--weight-black);
+	line-height: 1;
+}
+
+.puzzle__bit-place {
+	font-size: var(--text-min);
+	opacity: 0.75;
+}
+
+/* ---------- Circuit Builder ---------- */
+
+.puzzle__switches,
+.puzzle__slots,
+.puzzle__lamps,
+.puzzle__slot,
+.puzzle__choices {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--space-xs);
+}
+
+.puzzle__slots {
+	gap: var(--space-md);
+}
+
+/* Switches -> Gate -> Lamp on one row; wraps on narrow screens. */
+.puzzle__circuit {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	gap: var(--space-md);
+}
+
+.puzzle__part {
+	display: grid;
+	gap: var(--space-2xs);
+}
+
+.puzzle__part-label {
+	color: var(--color-muted);
+	font-family: var(--font-ui);
+	font-size: var(--text-min);
+	font-weight: var(--weight-semibold);
+}
+
+.puzzle__arrow {
+	padding-block-end: 0.6rem;
+	color: var(--color-muted);
+	font-size: 1.5rem;
+	line-height: 1;
+}
+
+.puzzle__switch,
+.puzzle__gate {
+	padding-inline: var(--space-md);
+}
+
+.puzzle__slot-label {
+	font-family: var(--font-ui);
+	font-weight: var(--weight-bold);
+}
+
+.puzzle__lamp {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-xs);
+	font-family: var(--font-ui);
+	font-weight: var(--weight-bold);
+}
+
+.puzzle__lamp-bulb {
+	width: 2rem;
+	height: 2rem;
+	border: 2px solid var(--color-border);
+	border-radius: 50%;
+	background: var(--color-surface);
+	transition: background var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+
+	.is-on & {
+		border-color: #e0a400;
+		background: var(--color-band-accent);
+		box-shadow: 0 0 1rem var(--color-band-accent);
+	}
+}
+
+.puzzle__table {
+	border-collapse: collapse;
+	font-family: var(--font-ui);
+	font-size: var(--text-min);
+	text-align: center;
+
+	caption {
+		margin-block-end: var(--space-2xs);
+		color: var(--color-muted);
+		font-weight: var(--weight-semibold);
+		text-align: start;
+	}
+
+	th,
+	td {
+		padding: 0.3rem 0.75rem;
+		border: 1px solid var(--color-line);
+	}
+
+	.is-ok {
+		color: var(--color-link);
+		font-weight: var(--weight-black);
+	}
+
+	/* The row matching the switches right now. */
+	.is-current td {
+		background: color-mix(in srgb, var(--color-brand) 18%, transparent);
+	}
+}
+
+/* ---------- Security Puzzles ---------- */
+
+.puzzle__coded {
+	font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+	font-size: clamp(1.25rem, 1rem + 1.5vw, 2rem);
+	font-weight: var(--weight-bold);
+	letter-spacing: 0.15em;
+	overflow-wrap: anywhere;
+}
+
+.puzzle__key-label {
+	font-family: var(--font-ui);
+	font-weight: var(--weight-bold);
+}
+
+.puzzle__key {
+	width: 100%;
+	accent-color: var(--color-brand);
+}
+
+.puzzle__choice {
+	padding-inline: var(--space-md);
+	font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+	&.is-right {
+		border-color: var(--color-brand);
+		background: var(--color-brand);
+		color: var(--color-on-brand);
+	}
+
+	&.is-wrong {
+		opacity: 0.5;
+		text-decoration: line-through;
+	}
+}
+
+/* Decoder strip: secret letters on top, real letters underneath. */
+.puzzle__strip {
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-rows: auto auto;
+	grid-template-columns: max-content;
+	grid-auto-columns: minmax(1.5rem, 1fr);
+	overflow-x: auto;
+	border: 1px solid var(--color-line);
+	border-radius: var(--radius-md);
+	background: var(--color-surface);
+	font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+	font-weight: var(--weight-bold);
+	text-align: center;
+
+	span {
+		padding: 0.35rem 0.15rem;
+	}
+}
+
+.puzzle__strip-label {
+	padding-inline: var(--space-sm) !important;
+	color: var(--color-muted);
+	font-family: var(--font-ui);
+	font-size: var(--text-min);
+}
+
+.puzzle__strip-secret {
+	border-block-end: 1px solid var(--color-line);
+}
+
+.puzzle__strip-real {
+	color: var(--color-link);
+}
+
+.puzzle__answer {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-xs);
+}
+
+.puzzle__answer-input {
+	flex: 1 1 16rem;
+	min-height: var(--touch-min);
+	padding-inline: var(--space-sm);
+	border: 2px solid var(--color-border);
+	border-radius: var(--radius-md);
+	background: var(--color-surface);
+	color: var(--color-ink);
+	font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+	font-size: var(--text-h4);
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+.puzzle__table-wrap {
+	overflow-x: auto;
+}
+
+/* Phones: four bits per row, and a tighter decoder strip. */
+@media (max-width: 30rem) {
+	.puzzle__bits {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.puzzle__strip {
+		grid-auto-columns: minmax(1.25rem, 1fr);
+		font-size: var(--text-sm);
+	}
+}

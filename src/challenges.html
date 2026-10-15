@@ -2,6 +2,7 @@
 	title="Challenges | BYU-Idaho Computer Science &amp; Software Engineering"
 	description="Try harder puzzles in programming, circuits, and security, and see where you would learn each skill at BYU-Idaho.">
 	<script src="js/robot.js" defer></script>
+	<script src="js/puzzles.js" defer></script>
 </include>
 
 <main id="main">
@@ -15,63 +16,46 @@
 	</section>
 
 	<section class="section" aria-labelledby="list-title">
-		<div class="container stack-lg">
+		<div class="container">
 			<h2 id="list-title" class="visually-hidden">Challenge Activities</h2>
 
-			<div class="activity activity--game" aria-labelledby="robot-title">
-				<div class="activity__intro">
-					<span class="activity__badge activity__badge--live">Play Now</span>
-					<p class="eyebrow">Programming</p>
-					<h3 id="robot-title">Robot Path Puzzles</h3>
-					<p>Five levels that get tougher as you go, from a simple corridor to a full spiral. Three stars on every level means the shortest path in the fewest blocks. Your stars are saved on this device.</p>
-					<p class="meta">Practice: Sequences, loops, debugging, and optimization</p>
-					<div class="activity__learn">
-						<p class="activity__learn-title">Skills You Are Practicing</p>
-						<ul class="tag-list"><li>Sequencing</li><li>Loops</li><li>Debugging</li><li>Optimization</li></ul>
-						<p>This puzzle runs on HTML, CSS, JavaScript, and a search algorithm that finds the best possible answer. You can learn to build tools like it.</p>
-						<button class="activity__learn-open" type="button" data-learn-open="learn-robot">How to Build This &rarr;</button>
+			<div class="grid grid--2">
+				<article class="challenge-card">
+					<img class="challenge-card__art" data-learn-open="game-robot" src="images/challenge-robot.svg" alt="A robot on a grid finding its way around walls to a gold goal" width="800" height="400" loading="lazy">
+					<div class="challenge-card__body">
+						<p class="eyebrow">Programming</p>
+						<h3>Robot Path Puzzles</h3>
+						<p>Nine levels, from a simple corridor to a full spiral. Can you earn three stars on every one?</p>
+						<button class="button" type="button" data-learn-open="game-robot">Play <span class="arrow" aria-hidden="true">&rarr;</span></button>
 					</div>
-				</div>
-				<div class="robot" data-robot="challenges" data-robot-learn="learn-robot"><p class="robot__noscript">Turn on JavaScript to play the robot puzzle.</p></div>
-			</div>
-
-			<div class="activity" aria-labelledby="circuit-title">
-				<div class="activity__intro">
-					<span class="activity__badge">Coming Soon</span>
-					<p class="eyebrow">Hardware</p>
-					<h3 id="circuit-title">Circuit Builder</h3>
-					<p>Wire switches through AND, OR, and NOT gates so a light turns on exactly when you want it to. Then build a circuit that adds two numbers, the same trick happening inside every computer chip.</p>
-					<p class="meta">Practice: Logic gates, binary, and how hardware computes</p>
-				</div>
-				<div class="slot activity__stage activity__stage--dots">
-					<p class="slot__note" id="review-4356c8"><strong>Reserved Space</strong>Breadboard and logic gate challenges</p>
-				</div>
-			</div>
-
-			<div class="activity" aria-labelledby="security-title">
-				<div class="activity__intro">
-					<span class="activity__badge">Coming Soon</span>
-					<p class="eyebrow">Security</p>
-					<h3 id="security-title">Security Puzzles</h3>
-					<p>Crack tougher ciphers, then think like a defender: Find the weak spot in a system before anyone else does.</p>
-					<p class="meta">Practice: Encryption, keys, and careful reasoning</p>
-				</div>
-				<div class="slot activity__stage">
-					<p class="slot__note" id="review-57df7c"><strong>Reserved Space</strong>Cipher and security challenges</p>
-				</div>
-			</div>
-
-			<div class="activity" aria-labelledby="bits-title">
-				<div class="activity__intro">
-					<span class="activity__badge">Coming Soon</span>
-					<p class="eyebrow">How Computers Think</p>
-					<h3 id="bits-title">Flip the Bits</h3>
-					<p>Flip eight switches to spell your initial, and discover how every photo, song, and text message you have ever sent is really just ones and zeros.</p>
-					<p class="meta">Practice: Binary and how computers store information</p>
-				</div>
-				<div class="slot activity__stage">
-					<p class="slot__note" id="review-0ba658"><strong>Reserved Space</strong>Binary switches activity</p>
-				</div>
+				</article>
+				<article class="challenge-card">
+					<img class="challenge-card__art" data-learn-open="game-circuit" src="images/challenge-circuit.svg" alt="Two switches wired through an AND gate to a glowing lamp" width="800" height="400" loading="lazy">
+					<div class="challenge-card__body">
+						<p class="eyebrow">Hardware</p>
+						<h3>Circuit Builder</h3>
+						<p>Pick AND, OR, and NOT gates to light the lamp, then build a circuit that adds two numbers.</p>
+						<button class="button" type="button" data-learn-open="game-circuit">Play <span class="arrow" aria-hidden="true">&rarr;</span></button>
+					</div>
+				</article>
+				<article class="challenge-card">
+					<img class="challenge-card__art" data-learn-open="game-cipher" src="images/challenge-cipher.svg" alt="Scrambled letters decoded into the word HELLO next to a padlock" width="800" height="400" loading="lazy">
+					<div class="challenge-card__body">
+						<p class="eyebrow">Security</p>
+						<h3>Security Puzzles</h3>
+						<p>Crack secret messages, then think like a defender and spot the weakest password.</p>
+						<button class="button" type="button" data-learn-open="game-cipher">Play <span class="arrow" aria-hidden="true">&rarr;</span></button>
+					</div>
+				</article>
+				<article class="challenge-card">
+					<img class="challenge-card__art" data-learn-open="game-bits" src="images/challenge-bits.svg" alt="Eight switches set to 01000001, which equals 65, the letter A" width="800" height="400" loading="lazy">
+					<div class="challenge-card__body">
+						<p class="eyebrow">How Computers Think</p>
+						<h3>Flip the Bits</h3>
+						<p>Flip eight switches to make numbers and letters, and see how computers store everything.</p>
+						<button class="button" type="button" data-learn-open="game-bits">Play <span class="arrow" aria-hidden="true">&rarr;</span></button>
+					</div>
+				</article>
 			</div>
 		</div>
 	</section>
@@ -91,6 +75,87 @@
 	</section>
 
 </main>
+
+<dialog class="learn learn--game" id="game-robot" aria-labelledby="robot-title">
+	<button class="learn__close" type="button" data-learn-close aria-label="Close">&times;</button>
+	<div class="learn__inner">
+				<div class="activity activity--game" aria-labelledby="robot-title">
+					<div class="activity__intro">
+						<p class="eyebrow">Programming</p>
+						<h3 id="robot-title">Robot Path Puzzles</h3>
+						<p>Nine levels that get tougher as you go, from a simple corridor to a full spiral. Three stars on every level means the shortest path in the fewest blocks. Your stars are saved on this device.</p>
+						<p class="meta">Practice: Sequences, loops, debugging, and optimization</p>
+						<div class="activity__learn">
+							<p class="activity__learn-title">Skills You Are Practicing</p>
+							<ul class="tag-list"><li>Sequencing</li><li>Loops</li><li>Debugging</li><li>Optimization</li></ul>
+							<p>This puzzle runs on HTML, CSS, JavaScript, and a search algorithm that finds the best possible answer. You can learn to build tools like it.</p>
+							<button class="activity__learn-open" type="button" data-learn-open="learn-robot">How to Build This &rarr;</button>
+						</div>
+					</div>
+					<div class="robot" data-robot="challenges" data-robot-learn="learn-robot" data-robot-solver><p class="robot__noscript">Turn on JavaScript to play the robot puzzle.</p></div>
+				</div>
+	</div>
+</dialog>
+
+<dialog class="learn learn--game" id="game-circuit" aria-labelledby="circuit-title">
+	<button class="learn__close" type="button" data-learn-close aria-label="Close">&times;</button>
+	<div class="learn__inner">
+		<div class="activity activity--game">
+			<div class="activity__intro">
+				<p class="eyebrow">Hardware</p>
+				<h3 id="circuit-title">Circuit Builder</h3>
+				<p>Six levels. Flip the switches, pick a gate, and watch the truth table check every combination. The last level is the circuit that adds numbers inside every processor.</p>
+				<p class="meta">Practice: Logic gates, truth tables, and how hardware computes</p>
+				<div class="activity__learn">
+					<p class="activity__learn-title">Skills You Are Practicing</p>
+					<ul class="tag-list"><li>Logic Gates</li><li>Truth Tables</li><li>Binary Addition</li></ul>
+					<p>You learn how gates become processors in ECEN 106 Computer Systems, and the logic behind truth tables in CSE 280 Discrete Mathematics.</p>
+				</div>
+			</div>
+			<div class="puzzle" data-puzzle="circuit"><p>Turn on JavaScript to play this puzzle.</p></div>
+		</div>
+	</div>
+</dialog>
+
+<dialog class="learn learn--game" id="game-cipher" aria-labelledby="cipher-title">
+	<button class="learn__close" type="button" data-learn-close aria-label="Close">&times;</button>
+	<div class="learn__inner">
+		<div class="activity activity--game">
+			<div class="activity__intro">
+				<p class="eyebrow">Security</p>
+				<h3 id="cipher-title">Security Puzzles</h3>
+				<p>Five levels. Crack three secret messages with a cipher key, then switch sides and judge passwords like a security pro.</p>
+				<p class="meta">Practice: Encryption, keys, and thinking like a defender</p>
+				<div class="activity__learn">
+					<p class="activity__learn-title">Skills You Are Practicing</p>
+					<ul class="tag-list"><li>Encryption</li><li>Brute Force</li><li>Password Strength</li></ul>
+					<p>Security thinking shows up across both majors, and CSE 453 Computer Security takes it deep.</p>
+				</div>
+			</div>
+			<div class="puzzle" data-puzzle="cipher"><p>Turn on JavaScript to play this puzzle.</p></div>
+		</div>
+	</div>
+</dialog>
+
+<dialog class="learn learn--game" id="game-bits" aria-labelledby="bits-title">
+	<button class="learn__close" type="button" data-learn-close aria-label="Close">&times;</button>
+	<div class="learn__inner">
+		<div class="activity activity--game">
+			<div class="activity__intro">
+				<p class="eyebrow">How Computers Think</p>
+				<h3 id="bits-title">Flip the Bits</h3>
+				<p>Six levels. Each switch is one bit worth double the switch to its right. Make the target number, then spell letters the way a computer stores them.</p>
+				<p class="meta">Practice: Binary and how computers store information</p>
+				<div class="activity__learn">
+					<p class="activity__learn-title">Skills You Are Practicing</p>
+					<ul class="tag-list"><li>Binary</li><li>Place Value</li><li>Text Encoding</li></ul>
+					<p>You meet binary from day one in CSE 110 Introduction to Programming and see how hardware stores it in ECEN 106 Computer Systems.</p>
+				</div>
+			</div>
+			<div class="puzzle" data-puzzle="bits"><p>Turn on JavaScript to play this puzzle.</p></div>
+		</div>
+	</div>
+</dialog>
 
 <include src="learn-robot.html"></include>
 

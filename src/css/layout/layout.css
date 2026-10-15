@@ -89,7 +89,7 @@
 
 	.lede {
 		margin: 0;
-		max-width: 46rem;
+		max-width: 60rem;
 	}
 }
 
@@ -98,7 +98,7 @@
 	.section-head--row {
 		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 		align-items: end;
-		column-gap: var(--space-3xl);
+		column-gap: var(--space-2xl);
 	}
 
 	.section-head--row .eyebrow {
@@ -126,7 +126,7 @@
 @media (min-width: 56rem) {
 	.split {
 		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-		column-gap: clamp(2.5rem, 1rem + 4vw, 5.5rem);
+		column-gap: clamp(2rem, 1rem + 3vw, 4rem);
 	}
 
 	.split--wide-text {
@@ -150,6 +150,10 @@
 
 .grid--sm {
 	--grid-min: 13rem;
+}
+
+.society-grid {
+	gap: clamp(1rem, 0.75rem + 1vw, 1.75rem);
 }
 
 .grid--lg {

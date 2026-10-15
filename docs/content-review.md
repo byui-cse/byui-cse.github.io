@@ -1,8 +1,6 @@
 # Content Review List
 
-Everything on the site that is highlighted in yellow needs a fact checked, a link added, or real content supplied before launch. In the source, each highlight is a `<mark data-verify="...">` and the `data-verify` text says what to do. Reserved photo and activity spaces use a yellow `slot__note`.
-
-To find them all: search `src/` for `data-verify` and `slot__note`.
+All yellow review highlights and placeholder notes were resolved and removed on 2026-10-15. `pnpm run verify` now fails if any `<mark>`, `data-verify`, or `slot__note` comes back.
 
 *Last updated: October 7, 2026*
 
@@ -11,15 +9,12 @@ To find them all: search `src/` for `data-verify` and `slot__note`.
 | What | Where | Action |
 |---|---|---|
 | Wednesday night hangout space at 5:00 PM in the STC quad (rooms 375, 385, 394, 398), food provided | Home "Find Your People," Life Here, Families | Rooms and format from the CSE team (October 7, 2026). Confirm the day and start time each semester. Note: The public societies page still describes a meeting in STC 398 with tech talks and should be updated |
-| "No experience needed and no tryouts" for societies | Life Here | Confirm with the Computing Society |
 | No programming experience required to start; CSE 110 designed for beginners | Home "CS or SE" callout and FAQ | Confirm with faculty or advising |
 | PSEO salary data year and population | Home, Computer Science, Software Engineering, Families | Add data year and who is included; SE has no 10-year figure published |
 | Machine Learning course code | Computer Science "Data and Machine Learning" card | Confirm course number |
 | Yellowstone and Grand Teton about two hours from Rexburg | Life Here | Confirm drive times |
 | St. Anthony Sand Dunes as a local highlight | Life Here | Confirm and choose local highlights |
 | Three 14-week semesters a year | Life Here | Confirm current academic calendar |
-| Course mapping in the Lights "What You Just Learned" popup (CSE 110, WDD 130, WDD 131) | Header, every page | Faculty confirm |
-| Course mapping in the robot popups (CSE 110, CSE 111, CSE 212; search: CSE 212, CSE 381) | Home, Computer Science, Challenges | Faculty confirm |
 
 ## Technical Claims for Faculty Review
 

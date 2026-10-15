@@ -23,5 +23,6 @@
 @import "./components/slots.css" layer(components);
 @import "./components/learn.css" layer(components);
 @import "./components/robot.css" layer(components);
+@import "./components/puzzles.css" layer(components);
 
 @import "./utilities/helpers.css" layer(utilities);
